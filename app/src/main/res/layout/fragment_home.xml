@@ -33,19 +33,31 @@
         android:layout_marginTop="24dp"
         android:letterSpacing="0.05"/>
 
+    <View
+        android:id="@+id/titleSeparator"
+        android:layout_width="300dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/gradient_button_bg"
+        android:letterSpacing="0.02"
+        android:lineSpacingExtra="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appName" />
+
     <TextView
         android:id="@+id/appSlogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="80dp"
         android:text="@string/app_slogan"
-        android:textSize="18sp"
         android:textColor="@color/slogan_color"
-        app:layout_constraintTop_toBottomOf="@id/appName"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:lineSpacingExtra="8sp"
-        android:letterSpacing="0.02"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleSeparator" />
 
     <Button
         android:id="@+id/startButton"
