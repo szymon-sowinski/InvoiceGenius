@@ -1,170 +1,484 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.gallery.GalleryFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/seller"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="126dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="126dp"
-        android:text="Dane sprzedawcy"
-        android:textColor="@color/app_name_color"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".ui.gallery.GalleryFragment">
 
-    <View
-        android:id="@+id/titleSeparator"
-        android:layout_width="200dp"
-        android:layout_height="3dp"
-        android:layout_marginTop="6dp"
-        android:background="@drawable/gradient_button_bg"
-        android:letterSpacing="0.02"
-        android:lineSpacingExtra="8sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seller" />
+        <TextView
+            android:id="@+id/seller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="126dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="126dp"
+            android:text="Dane sprzedawcy"
+            android:textColor="@color/app_name_color"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/sellerData"
-        android:layout_width="285dp"
-        android:layout_height="230dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="81dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        <View
+            android:id="@+id/titleSeparator"
+            android:layout_width="200dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/gradient_button_bg"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seller" />
 
-        <EditText
-            android:id="@+id/companyNameSeller"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/edittext_selector"
-            android:ems="10"
-            android:hint="Nazwa firmy"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+        <LinearLayout
+            android:id="@+id/sellerData"
+            android:layout_width="291dp"
+            android:layout_height="307dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="81dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleSeparator">
 
-        <EditText
-            android:id="@+id/addressSeller"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/edittext_selector"
-            android:ems="10"
-            android:hint="Adres"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+            <TextView
+                android:id="@+id/companyNameSellerTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="left"
+                android:text="Nazwa firmy: " />
 
-        <EditText
-            android:id="@+id/nip"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/edittext_selector"
-            android:ems="10"
-            android:hint="NIP"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+            <EditText
+                android:id="@+id/companyNameSeller"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Nazwa firmy"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
 
-        <EditText
-            android:id="@+id/regon"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/edittext_selector"
-            android:ems="10"
-            android:hint="REGON"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+            <TextView
+                android:id="@+id/addressSellerTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Adres:" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/addressSeller"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Adres"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
 
-    <TextView
-        android:id="@+id/buyer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="126dp"
-        android:layout_marginTop="348dp"
-        android:layout_marginEnd="126dp"
-        android:text="Dane nabywcy"
-        android:textColor="@color/app_name_color"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/nipSellerTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="NIP:" />
 
-    <View
-        android:id="@+id/titleSeparator2"
-        android:layout_width="200dp"
-        android:layout_height="3dp"
-        android:layout_marginTop="6dp"
-        android:background="@drawable/gradient_button_bg"
-        android:letterSpacing="0.02"
-        android:lineSpacingExtra="8sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buyer" />
+            <EditText
+                android:id="@+id/nipSeller"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="NIP"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
 
-    <LinearLayout
-        android:id="@+id/buyerData"
-        android:layout_width="283dp"
-        android:layout_height="126dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="388dp"
-        android:layout_marginEnd="81dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/regonTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="REGON:" />
 
-        <EditText
-            android:id="@+id/companyNameBuyer"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/edittext_selector"
-            android:ems="10"
-            android:hint="Nazwa firmy"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+            <EditText
+                android:id="@+id/regon"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="REGON"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
 
-        <EditText
-            android:id="@+id/addressBuyer"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/edittext_selector"
-            android:ems="10"
-            android:hint="Adres"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+        </LinearLayout>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/buyer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="126dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="126dp"
+            android:text="Dane nabywcy"
+            android:textColor="@color/app_name_color"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sellerData" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/titleSeparator2"
+            android:layout_width="200dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/gradient_button_bg"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buyer" />
+
+        <LinearLayout
+            android:id="@+id/buyerData"
+            android:layout_width="291dp"
+            android:layout_height="239dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="66dp"
+            android:layout_marginEnd="81dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.484"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sellerData">
+
+            <TextView
+                android:id="@+id/companyNameBuyerTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="left"
+                android:text="Nazwa firmy/Imię i nazwisko: " />
+
+            <EditText
+                android:id="@+id/companyNameBuyer"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Nazwa firmy/Imię i nazwisko"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/addressBuyerTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Adres: " />
+
+            <EditText
+                android:id="@+id/addressBuyer"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Adres"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/nipBuyerTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="NIP (opcjonalnie):" />
+
+            <EditText
+                android:id="@+id/nipBuyer"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="NIP (opcjonalnie)"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="126dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="126dp"
+            android:text="Data"
+            android:textColor="@color/app_name_color"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buyerData" />
+
+        <View
+            android:id="@+id/titleSeparator3"
+            android:layout_width="200dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/gradient_button_bg"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date" />
+
+        <LinearLayout
+            android:id="@+id/dateOfPurchase"
+            android:layout_width="291dp"
+            android:layout_height="162dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="66dp"
+            android:layout_marginEnd="81dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buyerData">
+
+            <TextView
+                android:id="@+id/sellDateTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="left"
+                android:text="Data sprzedaży: " />
+
+            <EditText
+                android:id="@+id/sellDate"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Data sprzedaży"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/issueDateTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Data wystawienia faktury*: " />
+
+            <EditText
+                android:id="@+id/issueDate"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Data wystawienia faktury*"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/paymentTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="126dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="126dp"
+            android:text="Płatność"
+            android:textColor="@color/app_name_color"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateOfPurchase" />
+
+        <View
+            android:id="@+id/titleSeparator4"
+            android:layout_width="200dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/gradient_button_bg"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/paymentTitle" />
+
+        <LinearLayout
+            android:id="@+id/payment"
+            android:layout_width="291dp"
+            android:layout_height="288dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="66dp"
+            android:layout_marginEnd="81dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateOfPurchase">
+
+            <TextView
+                android:id="@+id/priceTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="left"
+                android:text="Cena jednostkowa: " />
+
+            <EditText
+                android:id="@+id/price"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Cena jednostkowa"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/vatTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Stawka VAT: " />
+
+            <EditText
+                android:id="@+id/vat"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Stawka VAT"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/paymentMethodTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Metoda płatności: " />
+
+            <EditText
+                android:id="@+id/paymentMethod"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Metoda płatności"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/paymentDateTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Data płatności: " />
+
+            <EditText
+                android:id="@+id/paymentDate"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Data płatności"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/generateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="158dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="159dp"
+            android:paddingStart="24dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="12dp"
+            android:text="Generuj"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment" />
+
+        <TextView
+            android:id="@+id/information"
+            android:layout_width="291dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="51dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="60dp"
+            android:gravity="center"
+            android:text="*W przypadku braku podania daty wystawienia faktury, zostaje ustawiona dzisiejsza data. "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/generateButton"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
