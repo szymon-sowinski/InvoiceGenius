@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="left"
-                android:text="Nazwa firmy: " />
+                android:text="Nazwa firmy*: " />
 
             <EditText
                 android:id="@+id/companyNameSeller"
@@ -66,7 +66,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Nazwa firmy"
+                android:hint="Nazwa firmy*"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Adres:" />
+                android:text="Adres*:" />
 
             <EditText
                 android:id="@+id/addressSeller"
@@ -86,7 +86,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Adres"
+                android:hint="Adres*"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="NIP:" />
+                android:text="NIP*:" />
 
             <EditText
                 android:id="@+id/nipSeller"
@@ -106,7 +106,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="NIP"
+                android:hint="NIP*"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -116,7 +116,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="REGON:" />
+                android:text="REGON*:" />
 
             <EditText
                 android:id="@+id/regon"
@@ -125,7 +125,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="REGON"
+                android:hint="REGON*"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -181,7 +181,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="left"
-                android:text="Nazwa firmy/Imię i nazwisko: " />
+                android:text="Nazwa firmy/Imię i nazwisko*: " />
 
             <EditText
                 android:id="@+id/companyNameBuyer"
@@ -190,7 +190,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Nazwa firmy/Imię i nazwisko"
+                android:hint="Nazwa firmy/Imię i nazwisko*"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -201,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Adres: " />
+                android:text="Adres*: " />
 
             <EditText
                 android:id="@+id/addressBuyer"
@@ -210,7 +210,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Adres"
+                android:hint="Adres*"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -286,7 +286,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="left"
-                android:text="Data sprzedaży: " />
+                android:text="Data sprzedaży*: " />
 
             <EditText
                 android:id="@+id/sellDate"
@@ -295,7 +295,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Data sprzedaży"
+                android:hint="Data sprzedaży*"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -371,7 +371,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="left"
-                android:text="Cena jednostkowa: " />
+                android:text="Cena jednostkowa*: " />
 
             <EditText
                 android:id="@+id/price"
@@ -380,7 +380,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Cena jednostkowa"
+                android:hint="Cena jednostkowa*"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -391,7 +391,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Stawka VAT: " />
+                android:text="Stawka VAT*: " />
 
             <EditText
                 android:id="@+id/vat"
@@ -400,7 +400,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Stawka VAT"
+                android:hint="Stawka VAT*"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -411,7 +411,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Metoda płatności: " />
+                android:text="Metoda płatności*: " />
 
             <EditText
                 android:id="@+id/paymentMethod"
@@ -420,7 +420,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Metoda płatności"
+                android:hint="Metoda płatności*"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -431,7 +431,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Data płatności: " />
+                android:text="Data płatności*: " />
 
             <EditText
                 android:id="@+id/paymentDate"
@@ -440,7 +440,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Data płatności"
+                android:hint="Data płatności*"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -464,20 +464,53 @@
             app:layout_constraintTop_toBottomOf="@+id/payment" />
 
         <TextView
+            android:id="@+id/warnings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="126dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="126dp"
+            android:text="Uwagi i informacje"
+            android:textColor="@color/app_name_color"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/generateButton" />
+
+        <TextView
             android:id="@+id/information"
             android:layout_width="291dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="51dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="60dp"
             android:layout_marginBottom="60dp"
             android:gravity="center"
-            android:text="*W przypadku braku podania daty wystawienia faktury, zostaje ustawiona dzisiejsza data. "
+            android:text="1. Pola oznaczone symbolem gwiazdki (*) muszą być obowiązkowo wypełnione."
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/generateButton"
+            app:layout_constraintTop_toBottomOf="@+id/warnings"
             app:layout_constraintVertical_bias="1.0" />
+
+
+        <TextView
+            android:id="@+id/information1"
+            android:layout_width="291dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="60dp"
+            android:gravity="center"
+            android:text="2. XYZ"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/information"
+            app:layout_constraintVertical_bias="0.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
