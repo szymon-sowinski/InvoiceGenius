@@ -8,14 +8,78 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".ui.gallery.GalleryFragment">
+        tools:context=".ui.form.FormFragment">
+
+        <TextView
+            android:id="@+id/basicInfoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="126dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="126dp"
+            android:text="Podstawowe informacje"
+            android:textColor="@color/app_name_color"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <View
+            android:id="@+id/titleSeparator5"
+            android:layout_width="200dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/gradient_button_bg"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/basicInfoTitle" />
+
+        <LinearLayout
+            android:id="@+id/basicInfo"
+            android:layout_width="291dp"
+            android:layout_height="105dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="81dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleSeparator5">
+
+            <TextView
+                android:id="@+id/invoiceNumberTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="left"
+                android:text="Numer faktury*: " />
+
+            <EditText
+                android:id="@+id/invoiceNumber"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Numer faktury*"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/seller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="126dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="26dp"
             android:layout_marginEnd="126dp"
             android:text="Dane sprzedawcy"
             android:textColor="@color/app_name_color"
@@ -23,7 +87,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/basicInfo" />
 
         <View
             android:id="@+id/titleSeparator"
@@ -40,8 +104,8 @@
 
         <LinearLayout
             android:id="@+id/sellerData"
-            android:layout_width="291dp"
-            android:layout_height="307dp"
+            android:layout_width="290dp"
+            android:layout_height="449dp"
             android:layout_marginStart="80dp"
             android:layout_marginEnd="81dp"
             android:gravity="center_horizontal"
@@ -130,6 +194,32 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
+            <TextView
+                android:id="@+id/phoneNumberSellerTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Numer telefonu*:" />
+
+            <EditText
+                android:id="@+id/phoneNumberSeller"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Numer telefonu*"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/emailSellerTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Adres e-mail*:" />
+
         </LinearLayout>
 
         <TextView
@@ -164,7 +254,7 @@
         <LinearLayout
             android:id="@+id/buyerData"
             android:layout_width="291dp"
-            android:layout_height="239dp"
+            android:layout_height="377dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="66dp"
             android:layout_marginEnd="81dp"
@@ -235,6 +325,44 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
+            <TextView
+                android:id="@+id/phoneNumberBuyerTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Numer telefonu*:" />
+
+            <EditText
+                android:id="@+id/phoneNumberBuyer"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Numer telefonu*"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/emailBuyerTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Adres e-mail*:" />
+
+            <EditText
+                android:id="@+id/emailBuyer"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Adres e-mail*"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
         </LinearLayout>
 
         <TextView
@@ -249,7 +377,6 @@
             android:textSize="25dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.538"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buyerData" />
 
@@ -354,7 +481,7 @@
         <LinearLayout
             android:id="@+id/payment"
             android:layout_width="291dp"
-            android:layout_height="288dp"
+            android:layout_height="236dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="66dp"
             android:layout_marginEnd="81dp"
@@ -381,26 +508,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Cena jednostkowa*"
-                android:inputType="text"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp" />
-
-            <TextView
-                android:id="@+id/vatTitle"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="left"
-                android:text="Stawka VAT*: " />
-
-            <EditText
-                android:id="@+id/vat"
-                android:layout_width="250dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edittext_selector"
-                android:ems="10"
-                android:hint="Stawka VAT*"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -447,28 +554,12 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/generateButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="158dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="159dp"
-            android:paddingStart="24dp"
-            android:paddingTop="12dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="12dp"
-            android:text="Generuj"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/payment" />
-
         <TextView
             android:id="@+id/warnings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="126dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="335dp"
             android:layout_marginEnd="126dp"
             android:text="Uwagi i informacje"
             android:textColor="@color/app_name_color"
@@ -477,7 +568,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.538"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/generateButton" />
+            app:layout_constraintTop_toBottomOf="@+id/payment" />
 
         <TextView
             android:id="@+id/information"
@@ -494,24 +585,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/warnings"
             app:layout_constraintVertical_bias="1.0" />
-
-
-        <TextView
-            android:id="@+id/information1"
-            android:layout_width="291dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="60dp"
-            android:gravity="center"
-            android:text="2. XYZ"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/information"
-            app:layout_constraintVertical_bias="0.0" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
