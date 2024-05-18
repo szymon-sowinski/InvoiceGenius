@@ -107,7 +107,7 @@
             android:layout_width="290dp"
             android:layout_height="449dp"
             android:layout_marginStart="80dp"
-            android:layout_marginTop="1536dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="81dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
@@ -269,14 +269,14 @@
             android:layout_width="291dp"
             android:layout_height="377dp"
             android:layout_marginStart="80dp"
-            android:layout_marginTop="66dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="81dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.484"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sellerData">
+            app:layout_constraintTop_toBottomOf="@+id/titleSeparator2">
 
             <TextView
                 android:id="@+id/companyNameBuyerTitle"
@@ -494,7 +494,7 @@
         <LinearLayout
             android:id="@+id/payment"
             android:layout_width="291dp"
-            android:layout_height="236dp"
+            android:layout_height="165dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="66dp"
             android:layout_marginEnd="81dp"
@@ -504,26 +504,6 @@
             app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dateOfPurchase">
-
-            <TextView
-                android:id="@+id/priceTitle"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:gravity="left"
-                android:text="Cena jednostkowa*: " />
-
-            <EditText
-                android:id="@+id/price"
-                android:layout_width="250dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edittext_selector"
-                android:ems="10"
-                android:hint="Cena jednostkowa*"
-                android:inputType="text"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp" />
 
             <TextView
                 android:id="@+id/paymentMethodTitle"
@@ -566,13 +546,719 @@
                 android:paddingEnd="8dp" />
 
         </LinearLayout>
-        
+
+        <TextView
+            android:id="@+id/productPositionsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="126dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="126dp"
+            android:text="Pozycje produktów"
+            android:textColor="@color/app_name_color"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment" />
+
+        <View
+            android:id="@+id/titleSeparator6"
+            android:layout_width="200dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/gradient_button_bg"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productPositionsTitle" />
+
+        <LinearLayout
+            android:id="@+id/productPosition1"
+            android:layout_width="291dp"
+            android:layout_height="400dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="81dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleSeparator6">
+
+            <TextView
+                android:id="@+id/productPosition1Title"
+                android:layout_width="263dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="126dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="126dp"
+                android:text="Pozycja 1"
+                android:textStyle="bold"
+                android:textColor="@color/app_name_color"
+                android:gravity="center"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.538"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleSeparator6" />
+
+            <TextView
+                android:id="@+id/productName1Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Nazwa produktu: " />
+
+            <EditText
+                android:id="@+id/productName1"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Nazwa produktu"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productAmount1Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Ilość: " />
+
+            <EditText
+                android:id="@+id/productAmount1"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Ilość"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productMeasure1Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Jednostka miary: " />
+
+            <EditText
+                android:id="@+id/productMeasure1"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Jednostka miary"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productPriceNetto1Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Cena netto: " />
+
+            <EditText
+                android:id="@+id/productPriceNetto1"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Cena netto"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productVatRate1Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Stawka podatku VAT: " />
+
+            <EditText
+                android:id="@+id/productVatRate1"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Stawka podatku VAT"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/productPosition2"
+            android:layout_width="291dp"
+            android:layout_height="400dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="81dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productPosition1">
+
+            <TextView
+                android:id="@+id/productPosition2Title"
+                android:layout_width="263dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="126dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="126dp"
+                android:text="Pozycja 2"
+                android:textColor="@color/app_name_color"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.538"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleSeparator6" />
+
+            <TextView
+                android:id="@+id/productName2Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Nazwa produktu: " />
+
+            <EditText
+                android:id="@+id/productName2"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Nazwa produktu"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productAmount2Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Ilość: " />
+
+            <EditText
+                android:id="@+id/productAmount2"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Ilość"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productMeasure2Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Jednostka miary: " />
+
+            <EditText
+                android:id="@+id/productMeasure2"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Jednostka miary"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productPriceNetto2Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Cena netto: " />
+
+            <EditText
+                android:id="@+id/productPriceNetto2"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Cena netto"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productVatRate2Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Stawka podatku VAT: " />
+
+            <EditText
+                android:id="@+id/productVatRate2"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Stawka podatku VAT"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/productPosition3"
+            android:layout_width="291dp"
+            android:layout_height="400dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="81dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productPosition2">
+
+            <TextView
+                android:id="@+id/productPosition3Title"
+                android:layout_width="263dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="126dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="126dp"
+                android:text="Pozycja 3"
+                android:textColor="@color/app_name_color"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.538"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleSeparator6" />
+
+            <TextView
+                android:id="@+id/productName3Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Nazwa produktu: " />
+
+            <EditText
+                android:id="@+id/productName3"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Nazwa produktu"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productAmount3Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Ilość: " />
+
+            <EditText
+                android:id="@+id/productAmount3"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Ilość"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productMeasure3Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Jednostka miary: " />
+
+            <EditText
+                android:id="@+id/productMeasure3"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Jednostka miary"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productPriceNetto3Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Cena netto: " />
+
+            <EditText
+                android:id="@+id/productPriceNetto3"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Cena netto"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productVatRate3Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Stawka podatku VAT: " />
+
+            <EditText
+                android:id="@+id/productVatRate3"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Stawka podatku VAT"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/productPosition4"
+            android:layout_width="291dp"
+            android:layout_height="400dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="81dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productPosition3">
+
+            <TextView
+                android:id="@+id/productPosition4Title"
+                android:layout_width="263dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="126dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="126dp"
+                android:text="Pozycja 4"
+                android:textColor="@color/app_name_color"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.538"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleSeparator6" />
+
+            <TextView
+                android:id="@+id/productName4Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Nazwa produktu: " />
+
+            <EditText
+                android:id="@+id/productName4"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Nazwa produktu"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productAmount4Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Ilość: " />
+
+            <EditText
+                android:id="@+id/productAmount4"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Ilość"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productMeasure4Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Jednostka miary: " />
+
+            <EditText
+                android:id="@+id/productMeasure4"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Jednostka miary"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productPriceNetto4Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Cena netto: " />
+
+            <EditText
+                android:id="@+id/productPriceNetto4"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Cena netto"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productVatRate4Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Stawka podatku VAT: " />
+
+            <EditText
+                android:id="@+id/productVatRate4"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Stawka podatku VAT"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/productPosition5"
+            android:layout_width="291dp"
+            android:layout_height="400dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="81dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productPosition4">
+
+            <TextView
+                android:id="@+id/productPosition5Title"
+                android:layout_width="263dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="126dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="126dp"
+                android:text="Pozycja 5"
+                android:textColor="@color/app_name_color"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.538"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleSeparator6" />
+
+            <TextView
+                android:id="@+id/productName5Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Nazwa produktu: " />
+
+            <EditText
+                android:id="@+id/productName5"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Nazwa produktu"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productAmount5Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Ilość: " />
+
+            <EditText
+                android:id="@+id/productAmount5"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Ilość"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productMeasure5Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Jednostka miary: " />
+
+            <EditText
+                android:id="@+id/productMeasure5"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Jednostka miary"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productPriceNetto5Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Cena netto: " />
+
+            <EditText
+                android:id="@+id/productPriceNetto5"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Cena netto"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/productVatRate5Title"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Stawka podatku VAT: " />
+
+            <EditText
+                android:id="@+id/productVatRate5"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Stawka podatku VAT"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/generateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="118dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="118dp"
+            android:text="Generuj fakturę"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productPosition5" />
+
         <TextView
             android:id="@+id/warnings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="126dp"
-            android:layout_marginTop="335dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="126dp"
             android:text="Uwagi i informacje"
             android:textColor="@color/app_name_color"
@@ -581,7 +1267,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.538"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/payment" />
+            app:layout_constraintTop_toBottomOf="@+id/generateButton" />
 
         <TextView
             android:id="@+id/information"
@@ -598,6 +1284,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/warnings"
             app:layout_constraintVertical_bias="1.0" />
+
 
 
 
