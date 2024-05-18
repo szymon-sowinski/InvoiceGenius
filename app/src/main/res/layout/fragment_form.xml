@@ -107,11 +107,12 @@
             android:layout_width="290dp"
             android:layout_height="449dp"
             android:layout_marginStart="80dp"
+            android:layout_marginTop="1536dp"
             android:layout_marginEnd="81dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintHorizontal_bias="0.525"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleSeparator">
 
@@ -219,6 +220,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Adres e-mail*:" />
+
+            <EditText
+                android:id="@+id/emailSeller"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:hint="Adres e-mail*"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
 
         </LinearLayout>
 
@@ -553,7 +566,7 @@
                 android:paddingEnd="8dp" />
 
         </LinearLayout>
-
+        
         <TextView
             android:id="@+id/warnings"
             android:layout_width="wrap_content"
@@ -585,6 +598,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/warnings"
             app:layout_constraintVertical_bias="1.0" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
