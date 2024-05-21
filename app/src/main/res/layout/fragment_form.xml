@@ -191,7 +191,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="REGON*"
-                android:inputType="text"
+                android:inputType="number"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -210,7 +210,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Numer telefonu*"
-                android:inputType="text"
+                android:inputType="number"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -229,7 +229,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Adres e-mail*"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -353,7 +353,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Numer telefonu*"
-                android:inputType="text"
+                android:inputType="number"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -372,7 +372,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Adres e-mail*"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -436,7 +436,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Data sprzedaży*"
-                android:inputType="text"
+                android:inputType="date"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -456,7 +456,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Data wystawienia faktury*"
-                android:inputType="text"
+                android:inputType="date"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -494,7 +494,7 @@
         <LinearLayout
             android:id="@+id/payment"
             android:layout_width="291dp"
-            android:layout_height="165dp"
+            android:layout_height="162dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="66dp"
             android:layout_marginEnd="81dp"
@@ -541,7 +541,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Data płatności*"
-                android:inputType="text"
+                android:inputType="date"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -643,7 +643,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Ilość"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -673,7 +673,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Cena netto: " />
+                android:text="Cena netto[zł]: " />
 
             <EditText
                 android:id="@+id/productPriceNetto1"
@@ -682,8 +682,8 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Cena netto"
-                android:inputType="text"
+                android:hint="Cena netto[zł]"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -693,7 +693,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Stawka podatku VAT: " />
+                android:text="Stawka podatku VAT[%]: " />
 
             <EditText
                 android:id="@+id/productVatRate1"
@@ -702,8 +702,8 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Stawka podatku VAT"
-                android:inputType="text"
+                android:hint="Stawka podatku VAT[%]"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -776,7 +776,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Ilość"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -806,7 +806,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Cena netto: " />
+                android:text="Cena netto[zł]: " />
 
             <EditText
                 android:id="@+id/productPriceNetto2"
@@ -815,8 +815,8 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Cena netto"
-                android:inputType="text"
+                android:hint="Cena netto[zł]"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -826,7 +826,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Stawka podatku VAT: " />
+                android:text="Stawka podatku VAT[%]: " />
 
             <EditText
                 android:id="@+id/productVatRate2"
@@ -835,8 +835,8 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Stawka podatku VAT"
-                android:inputType="text"
+                android:hint="Stawka podatku VAT[%]"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -909,7 +909,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Ilość"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -939,7 +939,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Cena netto: " />
+                android:text="Cena netto[zł]: " />
 
             <EditText
                 android:id="@+id/productPriceNetto3"
@@ -948,8 +948,8 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Cena netto"
-                android:inputType="text"
+                android:hint="Cena netto[zł]"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -959,7 +959,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Stawka podatku VAT: " />
+                android:text="Stawka podatku VAT[%]: " />
 
             <EditText
                 android:id="@+id/productVatRate3"
@@ -968,8 +968,8 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Stawka podatku VAT"
-                android:inputType="text"
+                android:hint="Stawka podatku VAT[%]"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -1042,7 +1042,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Ilość"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -1072,7 +1072,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Cena netto: " />
+                android:text="Cena netto[zł]: " />
 
             <EditText
                 android:id="@+id/productPriceNetto4"
@@ -1081,8 +1081,8 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Cena netto"
-                android:inputType="text"
+                android:hint="Cena netto[zł]"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -1092,7 +1092,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Stawka podatku VAT: " />
+                android:text="Stawka podatku VAT[%]: " />
 
             <EditText
                 android:id="@+id/productVatRate4"
@@ -1101,8 +1101,8 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Stawka podatku VAT"
-                android:inputType="text"
+                android:hint="Stawka podatku VAT[%]"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -1175,7 +1175,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Ilość"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -1205,7 +1205,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Cena netto: " />
+                android:text="Cena netto[zł]: " />
 
             <EditText
                 android:id="@+id/productPriceNetto5"
@@ -1214,8 +1214,8 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Cena netto"
-                android:inputType="text"
+                android:hint="Cena netto[zł]"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -1225,7 +1225,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="Stawka podatku VAT: " />
+                android:text="Stawka podatku VAT[%]: " />
 
             <EditText
                 android:id="@+id/productVatRate5"
@@ -1234,15 +1234,15 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="Stawka podatku VAT"
-                android:inputType="text"
+                android:hint="Stawka podatku VAT[%]"
+                android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
         </LinearLayout>
 
         <Button
-            android:id="@+id/generateButton"
+            android:id="@+id/validateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="118dp"
@@ -1267,7 +1267,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.538"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/generateButton" />
+            app:layout_constraintTop_toBottomOf="@+id/validateButton" />
 
         <TextView
             android:id="@+id/information"
