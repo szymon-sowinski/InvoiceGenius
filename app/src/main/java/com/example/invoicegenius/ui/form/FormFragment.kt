@@ -22,16 +22,14 @@ class FormFragment : Fragment() {
     val companyNameSeller by lazy { binding.companyNameSeller }
     val addressSeller by lazy { binding.addressSeller }
     val nipSeller by lazy { binding.nipSeller }
-    val regonSeller by lazy { binding.regon }
+    val bankAccountNumber by lazy { binding.bankAccountNumber }
     val phoneNumberSeller by lazy { binding.phoneNumberSeller }
-    val emailSeller by lazy { binding.emailSeller }
 
     // Buyer data
     val companyNameBuyer by lazy { binding.companyNameBuyer }
     val addressBuyer by lazy { binding.addressBuyer }
-    val nipBuyer by lazy { binding.nipBuyer }
-    val phoneNumberBuyer by lazy { binding.phoneNumberBuyer }
     val emailBuyer by lazy { binding.emailBuyer }
+    val phoneNumberBuyer by lazy { binding.phoneNumberBuyer }
 
     // Date
     val sellDate by lazy { binding.sellDate }
@@ -105,14 +103,8 @@ class FormFragment : Fragment() {
         if (companyNameSeller.text.isNullOrBlank()) errors.add("Nazwa firmy sprzedawcy jest wymagana.")
         if (addressSeller.text.isNullOrBlank()) errors.add("Adres sprzedawcy jest wymagany.")
         if (nipSeller.text.isNullOrBlank()) errors.add("NIP sprzedawcy jest wymagany.")
-        if (regonSeller.text.isNullOrBlank()) errors.add("REGON sprzedawcy jest wymagany.")
         if (phoneNumberSeller.text.isNullOrBlank()) errors.add("Numer telefonu sprzedawcy jest wymagany.")
-        if (emailSeller.text.isNullOrBlank() || !android.util.Patterns.EMAIL_ADDRESS.matcher(
-                emailSeller.text
-            ).matches()
-        ) {
-            errors.add("Adres e-mail sprzedawcy jest niepoprawny.")
-        }
+        if (bankAccountNumber.text.isNullOrBlank() || bankAccountNumber.text.length != 24) errors.add("Numer konta sprzedawcy jest niepoprawny.")
 
         if (companyNameBuyer.text.isNullOrBlank()) errors.add("Nazwa firmy kupującego jest wymagana.")
         if (addressBuyer.text.isNullOrBlank()) errors.add("Adres kupującego jest wymagany.")

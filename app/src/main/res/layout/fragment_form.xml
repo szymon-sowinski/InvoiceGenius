@@ -42,7 +42,7 @@
         <LinearLayout
             android:id="@+id/basicInfo"
             android:layout_width="291dp"
-            android:layout_height="105dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginEnd="81dp"
             android:gravity="center_horizontal"
@@ -104,10 +104,9 @@
 
         <LinearLayout
             android:id="@+id/sellerData"
-            android:layout_width="290dp"
-            android:layout_height="449dp"
+            android:layout_width="291dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
-            android:layout_marginTop="0dp"
             android:layout_marginEnd="81dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
@@ -177,20 +176,20 @@
                 android:paddingEnd="8dp" />
 
             <TextView
-                android:id="@+id/regonTitle"
+                android:id="@+id/bankAccountNumberTitle"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="REGON*:" />
+                android:text="Numer konta bankowego*:" />
 
             <EditText
-                android:id="@+id/regon"
+                android:id="@+id/bankAccountNumber"
                 android:layout_width="250dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="REGON*"
+                android:hint="Numer konta bankowego*"
                 android:inputType="number"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -211,25 +210,6 @@
                 android:ems="10"
                 android:hint="Numer telefonu*"
                 android:inputType="number"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp" />
-
-            <TextView
-                android:id="@+id/emailSellerTitle"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Adres e-mail*:" />
-
-            <EditText
-                android:id="@+id/emailSeller"
-                android:layout_width="250dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edittext_selector"
-                android:ems="10"
-                android:hint="Adres e-mail*"
-                android:inputType="textEmailAddress"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -267,7 +247,7 @@
         <LinearLayout
             android:id="@+id/buyerData"
             android:layout_width="291dp"
-            android:layout_height="377dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="81dp"
@@ -319,22 +299,22 @@
                 android:paddingEnd="8dp" />
 
             <TextView
-                android:id="@+id/nipBuyerTitle"
+                android:id="@+id/emailBuyerTitle"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="left"
-                android:text="NIP (opcjonalnie):" />
+                android:text="Adres email*:" />
 
             <EditText
-                android:id="@+id/nipBuyer"
+                android:id="@+id/emailBuyer"
                 android:layout_width="250dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:hint="NIP (opcjonalnie)"
-                android:inputType="text"
+                android:hint="Adres email*"
+                android:inputType="textEmailAddress"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -354,25 +334,6 @@
                 android:ems="10"
                 android:hint="Numer telefonu*"
                 android:inputType="number"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp" />
-
-            <TextView
-                android:id="@+id/emailBuyerTitle"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Adres e-mail*:" />
-
-            <EditText
-                android:id="@+id/emailBuyer"
-                android:layout_width="250dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edittext_selector"
-                android:ems="10"
-                android:hint="Adres e-mail*"
-                android:inputType="textEmailAddress"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -409,7 +370,7 @@
         <LinearLayout
             android:id="@+id/dateOfPurchase"
             android:layout_width="291dp"
-            android:layout_height="162dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginTop="66dp"
             android:layout_marginEnd="81dp"
@@ -494,7 +455,7 @@
         <LinearLayout
             android:id="@+id/payment"
             android:layout_width="291dp"
-            android:layout_height="162dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginTop="66dp"
             android:layout_marginEnd="81dp"
@@ -579,7 +540,7 @@
         <LinearLayout
             android:id="@+id/productPosition1"
             android:layout_width="291dp"
-            android:layout_height="400dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="81dp"
@@ -712,7 +673,7 @@
         <LinearLayout
             android:id="@+id/productPosition2"
             android:layout_width="291dp"
-            android:layout_height="400dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="81dp"
@@ -845,7 +806,7 @@
         <LinearLayout
             android:id="@+id/productPosition3"
             android:layout_width="291dp"
-            android:layout_height="400dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="81dp"
@@ -978,7 +939,7 @@
         <LinearLayout
             android:id="@+id/productPosition4"
             android:layout_width="291dp"
-            android:layout_height="400dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="81dp"
@@ -1111,7 +1072,7 @@
         <LinearLayout
             android:id="@+id/productPosition5"
             android:layout_width="291dp"
-            android:layout_height="400dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="81dp"
