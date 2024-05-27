@@ -46,35 +46,46 @@ open class FormFragment : Fragment() {
     val paymentDate by lazy { binding.paymentDate }
 
     // Product positions
-    val productName1 by lazy { binding.productName1 }
-    val productAmount1 by lazy { binding.productAmount1 }
-    val productMeasure1 by lazy { binding.productMeasure1 }
-    val productPriceNetto1 by lazy { binding.productPriceNetto1 }
-    val productVatRate1 by lazy { binding.productVatRate1 }
+    val productPositions by lazy {
+        listOf(
+            ProductPositions(
+                binding.productName1,
+                binding.productAmount1,
+                binding.productMeasure1,
+                binding.productPriceNetto1,
+                binding.productVatRate1,
+            ),
+            ProductPositions(
+                binding.productName2,
+                binding.productAmount2,
+                binding.productMeasure2,
+                binding.productPriceNetto2,
+                binding.productVatRate2
+            ),
+            ProductPositions(
+                binding.productName3,
+                binding.productAmount3,
+                binding.productMeasure3,
+                binding.productPriceNetto3,
+                binding.productVatRate3
+            ),
+            ProductPositions(
+                binding.productName4,
+                binding.productAmount4,
+                binding.productMeasure4,
+                binding.productPriceNetto4,
+                binding.productVatRate4
+            ),
+            ProductPositions(
+                binding.productName5,
+                binding.productAmount5,
+                binding.productMeasure5,
+                binding.productPriceNetto5,
+                binding.productVatRate5
+            )
+        )
+    }
 
-    val productName2 by lazy { binding.productName2 }
-    val productAmount2 by lazy { binding.productAmount2 }
-    val productMeasure2 by lazy { binding.productMeasure2 }
-    val productPriceNetto2 by lazy { binding.productPriceNetto2 }
-    val productVatRate2 by lazy { binding.productVatRate2 }
-
-    val productName3 by lazy { binding.productName3 }
-    val productAmount3 by lazy { binding.productAmount3 }
-    val productMeasure3 by lazy { binding.productMeasure3 }
-    val productPriceNetto3 by lazy { binding.productPriceNetto3 }
-    val productVatRate3 by lazy { binding.productVatRate3 }
-
-    val productName4 by lazy { binding.productName4 }
-    val productAmount4 by lazy { binding.productAmount4 }
-    val productMeasure4 by lazy { binding.productMeasure4 }
-    val productPriceNetto4 by lazy { binding.productPriceNetto4 }
-    val productVatRate4 by lazy { binding.productVatRate4 }
-
-    val productName5 by lazy { binding.productName5 }
-    val productAmount5 by lazy { binding.productAmount5 }
-    val productMeasure5 by lazy { binding.productMeasure5 }
-    val productPriceNetto5 by lazy { binding.productPriceNetto5 }
-    val productVatRate5 by lazy { binding.productVatRate5 }
 
     val submitButton by lazy { binding.validateButton }
 
@@ -94,19 +105,33 @@ open class FormFragment : Fragment() {
         binding.validateButton.setOnClickListener {
             Log.d("test-button", binding.validateButton.text.toString())
             if (validateForm()) {
-                val products = getProducts()
+                var products: Array<Product> = emptyArray()
+                for (i in 0 until 3) {
+                    if (productPositions[i].productName.text.toString().isNotEmpty()) {
+                        products += productPositions[i].getProduct()
+                    }
+                }
                 val invoiceData = InvoiceData(
-                    Seller(companyNameSeller.text.toString(), addressSeller.text.toString(), nipSeller.text.toString(), bankAccountNumber.text.toString(), phoneNumberSeller.text.toString()),
-                    Buyer(companyNameBuyer.text.toString(), addressBuyer.text.toString(), emailBuyer.text.toString(), phoneNumberBuyer.text.toString()),
+                    Seller(
+                        companyNameSeller.text.toString(),
+                        addressSeller.text.toString(),
+                        nipSeller.text.toString(),
+                        bankAccountNumber.text.toString(),
+                        phoneNumberSeller.text.toString()
+                    ),
+                    Buyer(
+                        companyNameBuyer.text.toString(),
+                        addressBuyer.text.toString(),
+                        emailBuyer.text.toString(),
+                        phoneNumberBuyer.text.toString()
+                    ),
                     sellDate.text.toString(),
                     issueDate.text.toString(),
                     paymentMethod.text.toString(),
                     paymentDate.text.toString(),
-                    listOf(
-                        Product(productName1.text.toString(), productAmount1.text.toString().toFloat(), productMeasure1.text.toString(), productPriceNetto1.text.toString().toFloat(), productVatRate1.text.toString().toFloat(), ),
-                        Product(productName2.text.toString(), productAmount2.text.toString().toFloat(), productMeasure2.text.toString(), productPriceNetto2.text.toString().toFloat(), productVatRate2.text.toString().toFloat()),
-                        Product(productName3.text.toString(), productAmount3.text.toString().toFloat(), productMeasure3.text.toString(), productPriceNetto3.text.toString().toFloat(), productVatRate3.text.toString().toFloat(), )),
-                    invoiceNumber.text.toString())
+                    products.toList(),
+                    invoiceNumber.text.toString()
+                )
                 Log.d("test-data", invoiceData.toString())
             }
         }
@@ -117,24 +142,63 @@ open class FormFragment : Fragment() {
     private fun getProducts(): List<Map<String, String>> {
         val products = mutableListOf<Map<String, String>>()
 
-        fun addProduct(name: EditText, amount: EditText, measure: EditText, price: EditText, vat: EditText) {
+        fun addProduct(
+            name: EditText,
+            amount: EditText,
+            measure: EditText,
+            price: EditText,
+            vat: EditText
+        ) {
             if (name.text.isNotBlank() && amount.text.isNotBlank() && measure.text.isNotBlank() &&
-                price.text.isNotBlank() && vat.text.isNotBlank()) {
-                products.add(mapOf(
-                    "name" to name.text.toString(),
-                    "amount" to amount.text.toString(),
-                    "measure" to measure.text.toString(),
-                    "price" to price.text.toString(),
-                    "vat" to vat.text.toString()
-                ))
+                price.text.isNotBlank() && vat.text.isNotBlank()
+            ) {
+                products.add(
+                    mapOf(
+                        "name" to name.text.toString(),
+                        "amount" to amount.text.toString(),
+                        "measure" to measure.text.toString(),
+                        "price" to price.text.toString(),
+                        "vat" to vat.text.toString()
+                    )
+                )
             }
         }
 
-        addProduct(binding.productName1, binding.productAmount1, binding.productMeasure1, binding.productPriceNetto1, binding.productVatRate1)
-        addProduct(binding.productName2, binding.productAmount2, binding.productMeasure2, binding.productPriceNetto2, binding.productVatRate2)
-        addProduct(binding.productName3, binding.productAmount3, binding.productMeasure3, binding.productPriceNetto3, binding.productVatRate3)
-        addProduct(binding.productName4, binding.productAmount4, binding.productMeasure4, binding.productPriceNetto4, binding.productVatRate4)
-        addProduct(binding.productName5, binding.productAmount5, binding.productMeasure5, binding.productPriceNetto5, binding.productVatRate5)
+        addProduct(
+            binding.productName1,
+            binding.productAmount1,
+            binding.productMeasure1,
+            binding.productPriceNetto1,
+            binding.productVatRate1
+        )
+        addProduct(
+            binding.productName2,
+            binding.productAmount2,
+            binding.productMeasure2,
+            binding.productPriceNetto2,
+            binding.productVatRate2
+        )
+        addProduct(
+            binding.productName3,
+            binding.productAmount3,
+            binding.productMeasure3,
+            binding.productPriceNetto3,
+            binding.productVatRate3
+        )
+        addProduct(
+            binding.productName4,
+            binding.productAmount4,
+            binding.productMeasure4,
+            binding.productPriceNetto4,
+            binding.productVatRate4
+        )
+        addProduct(
+            binding.productName5,
+            binding.productAmount5,
+            binding.productMeasure5,
+            binding.productPriceNetto5,
+            binding.productVatRate5
+        )
 
         return products
     }
@@ -184,5 +248,23 @@ open class FormFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+}
+
+class ProductPositions(
+    val productName: EditText,
+    val productAmount: EditText,
+    val productMeasure: EditText,
+    val productPriceNetto: EditText,
+    val productVatRate: EditText
+) {
+    fun getProduct(): Product {
+        return Product(
+            productName.text.toString(),
+            productAmount.text.toString().toFloat(),
+            productMeasure.text.toString(),
+            productPriceNetto.text.toString().toFloat(),
+            productVatRate.text.toString().toFloat()
+        )
     }
 }

@@ -17,6 +17,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.invoicegenius.databinding.FragmentFileBinding
+import com.google.gson.Gson
+import org.xmlpull.v1.XmlPullParser
+import org.xmlpull.v1.XmlPullParserFactory
+import java.io.InputStreamReader
 
 class FileFragment : Fragment() {
 
@@ -30,7 +34,7 @@ class FileFragment : Fragment() {
             if (isGranted) {
                 chooseFile()
             } else {
-                Toast.makeText(requireContext(), "Dostęp nie przyznany", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Permission denied", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -81,6 +85,7 @@ class FileFragment : Fragment() {
             val fileName = it.getString(nameIndex)
             if (isValidFile(fileName)) {
                 binding.tvFilePath.text = fileName
+                readFileContent(uri, fileName)
             } else {
                 showInvalidFileDialog()
             }
@@ -94,8 +99,62 @@ class FileFragment : Fragment() {
 
     private fun showInvalidFileDialog() {
         AlertDialog.Builder(requireContext())
-            .setTitle("Nieobsługiwany plik")
-            .setMessage("Proszę wybrać plik z rozszerzeniem .xml lub .json.")
+            .setTitle("Invalid File")
+            .setMessage("Please select a file with .xml or .json extension.")
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    private fun readFileContent(uri: Uri, fileName: String) {
+        val inputStream = requireContext().contentResolver.openInputStream(uri)
+        inputStream?.use {
+            when {
+                fileName.endsWith(".json", true) -> {
+                    val reader = InputStreamReader(it)
+                    val data = Gson().fromJson(reader, Map::class.java)
+                    displayData(data)
+                }
+                fileName.endsWith(".xml", true) -> {
+                    val factory = XmlPullParserFactory.newInstance()
+                    val parser = factory.newPullParser()
+                    parser.setInput(it, null)
+                    val data = parseXml(parser)
+                    displayData(data)
+                }
+            }
+        }
+    }
+
+    private fun parseXml(parser: XmlPullParser): Map<String, Any> {
+        val result = mutableMapOf<String, Any>()
+        var eventType = parser.eventType
+        var currentTag: String? = null
+        while (eventType != XmlPullParser.END_DOCUMENT) {
+            when (eventType) {
+                XmlPullParser.START_TAG -> {
+                    currentTag = parser.name
+                }
+                XmlPullParser.TEXT -> {
+                    currentTag?.let {
+                        result[it] = parser.text
+                    }
+                }
+                XmlPullParser.END_TAG -> {
+                    currentTag = null
+                }
+            }
+            eventType = parser.next()
+        }
+        return result
+    }
+
+    private fun displayData(data: Map<*, *>) {
+        val dataString = data.entries.joinToString(separator = "\n") { "${it.key}: ${it.value}" }
+        AlertDialog.Builder(requireContext())
+            .setTitle("File Content")
+            .setMessage(dataString)
             .setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
             }

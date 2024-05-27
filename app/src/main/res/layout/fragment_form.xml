@@ -597,7 +597,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="dupa"
                 android:hint="Nazwa produktu"
                 android:inputType="text"
                 android:paddingStart="8dp"
