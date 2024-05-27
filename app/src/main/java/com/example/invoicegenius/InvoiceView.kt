@@ -36,9 +36,32 @@ class InvoiceView(context: Context) : FormFragment() {
     val priceVatTemp: TextView = invoiceView.findViewById(R.id.priceVatTemp)
     val priceBruttoTemp: TextView = invoiceView.findViewById(R.id.priceBruttoTemp)
     val paymentMethodTemp: TextView = invoiceView.findViewById(R.id.paymentMethodTemp)
-    val paymentTargetDayTemp: TextView = invoiceView.findViewById(R.id.paymentTargetDayTempa)
+    val paymentTargetDateTemp: TextView = invoiceView.findViewById(R.id.paymentTargetDayTemp)
     val wholePriceTemp: TextView = invoiceView.findViewById(R.id.wholePriceTemp)
     val signatureSellerTemp: TextView = invoiceView.findViewById(R.id.signatureSellerTemp)
+
+    fun fillInvoiceFields(invoiceData: InvoiceData) {
+        invoiceNumberTemp.text = invoiceData.invoiceNumber
+        issueDateTemp.text = invoiceData.issueDate
+        sellDateTemp.text = invoiceData.sellDate
+
+        companyNameSellerTemp.text = invoiceData.seller.companyName
+        addressSellerTemp.text = invoiceData.seller.address
+        nipSellerTemp.text = invoiceData.seller.nip
+        phoneNumberSellerTemp.text = invoiceData.seller.phoneNumber
+        bankAccountNumberTemp.text = invoiceData.seller.bankAccountNumber
+
+        companyNameBuyerTemp.text = invoiceData.buyer.companyName
+        addressBuyerTemp.text = invoiceData.buyer.address
+        emailBuyerTemp.text = invoiceData.buyer.email
+        phoneNumberBuyerTemp.text = invoiceData.buyer.phoneNumber
+
+        paymentMethodTemp.text = invoiceData.paymentMethod
+        paymentTargetDateTemp.text = invoiceData.paymentTargetDate
+
+        signatureSellerTemp.text = invoiceData.seller.companyName
+
+    }
 
     fun addProducts(products: List<Map<String, String>>) {
         val inflater = LayoutInflater.from(invoiceView.context)

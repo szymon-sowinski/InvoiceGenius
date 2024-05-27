@@ -18,7 +18,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="140dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:background="#e0e0e0"
                 android:orientation="horizontal"
@@ -87,31 +87,26 @@
                     android:id="@+id/addressSellerTemp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="adres" />
 
                 <TextView
                     android:id="@+id/nipSellerTemp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="5dp"
                     android:text="NIP: " />
 
                 <TextView
                     android:id="@+id/phoneNumberSellerTemp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="5dp"
                     android:text="telefon: " />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Nr konta bankowego:" />
-
                 <TextView
                     android:id="@+id/bankAccountNumberTemp"
                     android:layout_width="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:layout_height="wrap_content"
                     android:text="1020 2892 2276 3005 0000 0000" />
             </LinearLayout>
@@ -139,12 +134,14 @@
                 <TextView
                     android:id="@+id/addressBuyerTemp"
                     android:layout_width="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:layout_height="wrap_content"
                     android:text="adres" />
 
                 <TextView
                     android:id="@+id/emailBuyerTemp"
                     android:layout_width="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:layout_height="wrap_content"
                     android:text="email" />
 
@@ -152,7 +149,7 @@
                     android:id="@+id/phoneNumberBuyerTemp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="5dp"
                     android:text="telefon: " />
             </LinearLayout>
         </LinearLayout>

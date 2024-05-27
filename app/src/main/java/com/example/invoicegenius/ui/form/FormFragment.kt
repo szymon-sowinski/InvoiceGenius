@@ -22,6 +22,7 @@ import com.example.invoicegenius.Product
 import com.example.invoicegenius.R
 import com.example.invoicegenius.Seller
 import com.example.invoicegenius.databinding.FragmentFormBinding
+import com.google.gson.Gson
 
 open class FormFragment : Fragment() {
 
@@ -44,6 +45,7 @@ open class FormFragment : Fragment() {
     // Date
     val sellDate by lazy { binding.sellDate }
     val issueDate by lazy { binding.issueDate }
+    val targetPaymentDate by lazy { binding.paymentTargetDate }
 
     // Payment details
     val paymentMethod by lazy { binding.paymentMethod }
@@ -133,11 +135,17 @@ open class FormFragment : Fragment() {
                     issueDate.text.toString(),
                     paymentMethod.text.toString(),
                     paymentDate.text.toString(),
+                    targetPaymentDate.text.toString(),
                     products.toList(),
                     invoiceNumber.text.toString()
                 )
                 Log.d("test-data", invoiceData.toString())
+
+                val gson = Gson()
+                val json = gson.toJson(invoiceData)
+
                 val intent = Intent(requireActivity(), InvoiceActivity::class.java)
+                intent.putExtra("invoiceData", json)
                 startActivity(intent)
             }
         }

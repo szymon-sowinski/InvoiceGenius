@@ -67,7 +67,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="123"
+                android:text="23/265/34"
                 android:hint="Numer faktury*"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -131,7 +131,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="firma"
+                android:text="Śrubex"
                 android:hint="Nazwa firmy*"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -153,7 +153,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Adres*"
-                android:text="adres"
+                android:text="Radzymin, Kwiatowa 12"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -173,7 +173,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="123"
+                android:text="14252525256"
                 android:hint="NIP*"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -213,7 +213,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="474747"
+                android:text="789675423"
                 android:hint="Numer telefonu*"
                 android:inputType="number"
                 android:paddingStart="8dp"
@@ -279,7 +279,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="janusz"
+                android:text="Jan Gwiazda"
                 android:hint="Nazwa firmy/Imię i nazwisko*"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -302,7 +302,7 @@
                 android:ems="10"
                 android:hint="Adres*"
                 android:inputType="text"
-                android:text="brykowo"
+                android:text="Marki, Gwiezdna 10"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -322,7 +322,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Adres email*"
-                android:text="xd@lol.pl"
+                android:text="jgwiazda@wp.pl"
                 android:inputType="textEmailAddress"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -341,7 +341,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="123"
+                android:text="567345123"
                 android:hint="Numer telefonu*"
                 android:inputType="number"
                 android:paddingStart="8dp"
@@ -408,7 +408,7 @@
                 android:ems="10"
                 android:hint="Data sprzedaży*"
                 android:inputType="date"
-                android:text="12.04.2137"
+                android:text="12.04.2024"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -429,7 +429,7 @@
                 android:ems="10"
                 android:hint="Data wystawienia faktury*"
                 android:inputType="date"
-                android:text="12.04.2137"
+                android:text="12.04.2024"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -494,7 +494,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Metoda płatności*"
-                android:text="dupa"
+                android:text="Karta"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -514,11 +514,32 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="23.04.2137"
+                android:text="23.04.2024"
                 android:hint="Data płatności*"
                 android:inputType="date"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
+            <TextView
+                android:id="@+id/paymentTargetDateTitle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="Termin płatności*: " />
+
+            <EditText
+                android:id="@+id/paymentTargetDate"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_selector"
+                android:ems="10"
+                android:text="23.04.2024"
+                android:hint="Termin płatności*"
+                android:inputType="date"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
 
         </LinearLayout>
 
@@ -598,6 +619,7 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Nazwa produktu"
+                android:text="Kwas"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
