@@ -1,16 +1,25 @@
-<!-- fragment_file.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".ui.file.FileFragment">
 
     <Button
-        android:id="@+id/btnSelectFile"
+        android:id="@+id/btn_choose_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select File" />
+        android:text="Załącz plik"
+        android:layout_centerInParent="true"/>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_file_path"
+        android:layout_width="200dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_choose_file"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="File path will appear here"/>
+
+</RelativeLayout>

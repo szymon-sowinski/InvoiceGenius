@@ -1,0 +1,65 @@
+<LinearLayout
+    android:id="@+id/invoiceDataContainer"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f0f0f0"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/positionNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/productName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:text="Produkt 1" />
+
+    <TextView
+        android:id="@+id/productAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/productMeasure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="godz." />
+
+    <TextView
+        android:id="@+id/productPriceNetto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:text="0.00 PLN" />
+
+    <TextView
+        android:id="@+id/productVatRate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="23%" />
+
+    <TextView
+        android:id="@+id/productVatAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:text="0.00 PLN" />
+
+    <TextView
+        android:id="@+id/productPriceBrutto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:text="0.00 PLN" />
+</LinearLayout>
