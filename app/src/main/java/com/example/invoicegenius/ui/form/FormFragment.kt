@@ -1,5 +1,7 @@
 package com.example.invoicegenius.ui.form
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,7 +14,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import com.example.invoicegenius.Buyer
+import com.example.invoicegenius.InvoiceActivity
 import com.example.invoicegenius.InvoiceData
+import com.example.invoicegenius.InvoiceView
 import com.example.invoicegenius.MainActivity
 import com.example.invoicegenius.Product
 import com.example.invoicegenius.R
@@ -102,7 +106,7 @@ open class FormFragment : Fragment() {
         _binding = FragmentFormBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.validateButton.setOnClickListener {
+        submitButton.setOnClickListener {
             Log.d("test-button", binding.validateButton.text.toString())
             if (validateForm()) {
                 var products: Array<Product> = emptyArray()
@@ -133,6 +137,8 @@ open class FormFragment : Fragment() {
                     invoiceNumber.text.toString()
                 )
                 Log.d("test-data", invoiceData.toString())
+                val intent = Intent(requireActivity(), InvoiceActivity::class.java)
+                startActivity(intent)
             }
         }
 

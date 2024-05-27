@@ -36,7 +36,7 @@ class InvoiceView(context: Context) : FormFragment() {
     val priceVatTemp: TextView = invoiceView.findViewById(R.id.priceVatTemp)
     val priceBruttoTemp: TextView = invoiceView.findViewById(R.id.priceBruttoTemp)
     val paymentMethodTemp: TextView = invoiceView.findViewById(R.id.paymentMethodTemp)
-    val paymentTargetDayTemp: TextView = invoiceView.findViewById(R.id.paymentTargetDayTemp)
+    val paymentTargetDayTemp: TextView = invoiceView.findViewById(R.id.paymentTargetDayTempa)
     val wholePriceTemp: TextView = invoiceView.findViewById(R.id.wholePriceTemp)
     val signatureSellerTemp: TextView = invoiceView.findViewById(R.id.signatureSellerTemp)
 
