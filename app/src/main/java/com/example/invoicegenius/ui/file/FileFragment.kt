@@ -99,8 +99,8 @@ class FileFragment : Fragment() {
 
     private fun showInvalidFileDialog() {
         AlertDialog.Builder(requireContext())
-            .setTitle("Invalid File")
-            .setMessage("Please select a file with .xml or .json extension.")
+            .setTitle("Nieobsługiwany plik")
+            .setMessage("Proszę załączyć plik z rozszerzeniem .xml lub .json.")
             .setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
             }

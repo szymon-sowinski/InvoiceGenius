@@ -1,18 +1,15 @@
 package com.example.invoicegenius
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.gson.Gson
 
 class InvoiceActivity : AppCompatActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +17,9 @@ class InvoiceActivity : AppCompatActivity() {
 
         val data = intent.getSerializableExtra("invoiceData") as String
         val invoiceData = Gson().fromJson(data, InvoiceData::class.java)
+
+        // Dodaj logowanie
+        Log.d("InvoiceActivity", "InvoiceData: $invoiceData")
 
         // Invoice template fields
         val invoiceNumberTemp: TextView = findViewById(R.id.invoiceNumberTemp)
@@ -48,12 +48,12 @@ class InvoiceActivity : AppCompatActivity() {
         val wholePriceTemp: TextView = findViewById(R.id.wholePriceTemp)
         val signatureSellerTemp: TextView = findViewById(R.id.signatureSellerTemp)
 
-        //header data
+        // Header data
         invoiceNumberTemp.text = "Faktura nr: ${invoiceData.invoiceNumber}"
         issueDateTemp.text = "Data wystawienia: ${invoiceData.issueDate}"
         sellDateTemp.text = "Data sprzedaży: ${invoiceData.sellDate}"
 
-        //seller data
+        // Seller data
         companyNameSellerTemp.text = invoiceData.seller.companyName
         addressSellerTemp.text = invoiceData.seller.address
         nipSellerTemp.text = "NIP: ${invoiceData.seller.nip}"
@@ -65,10 +65,32 @@ class InvoiceActivity : AppCompatActivity() {
         emailBuyerTemp.text = invoiceData.buyer.email
         phoneNumberBuyerTemp.text = "Telefon: ${invoiceData.buyer.phoneNumber}"
 
+        val productsContainer = findViewById<LinearLayout>(R.id.productsContainer)
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+
+        for ((index, product) in invoiceData.products.withIndex()) {
+            // Log each product
+            Log.d("InvoiceActivity", "Product $index: $product")
+
+            val productItemView = inflater.inflate(R.layout.product_item_template, null)
+
+            val vatAmount = product.productPriceNetto * product.vatRate / 100
+            productItemView.findViewById<TextView>(R.id.positionNumber).text = (index + 1).toString()
+            productItemView.findViewById<TextView>(R.id.productName).text = product.productName
+            productItemView.findViewById<TextView>(R.id.productAmount).text = product.productAmount.toString()
+            productItemView.findViewById<TextView>(R.id.productMeasure).text = product.productMeasure
+            productItemView.findViewById<TextView>(R.id.productPriceNetto).text = "${product.productPriceNetto} PLN"
+            productItemView.findViewById<TextView>(R.id.productVatRate).text = "${product.vatRate}%"
+            productItemView.findViewById<TextView>(R.id.productVatAmount).text = "${vatAmount} PLN"
+            productItemView.findViewById<TextView>(R.id.productPriceBrutto).text = "${product.productPriceNetto + vatAmount} PLN"
+
+            // Add the product item view to the container
+            productsContainer.addView(productItemView)
+        }
+
         paymentMethodTemp.text = invoiceData.paymentMethod
         paymentTargetDateTemp.text = invoiceData.paymentTargetDate
 
         signatureSellerTemp.text = invoiceData.seller.companyName
     }
-
 }
