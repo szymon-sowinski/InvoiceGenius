@@ -1,7 +1,5 @@
 package com.example.invoicegenius
 
-import com.google.gson.Gson
-
 data class InvoiceData(
     val seller: Seller,
     val buyer: Buyer,

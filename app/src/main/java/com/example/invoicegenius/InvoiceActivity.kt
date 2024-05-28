@@ -2,7 +2,6 @@ package com.example.invoicegenius
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -18,28 +17,21 @@ class InvoiceActivity : AppCompatActivity() {
         val data = intent.getSerializableExtra("invoiceData") as String
         val invoiceData = Gson().fromJson(data, InvoiceData::class.java)
 
-        // Dodaj logowanie
-        Log.d("InvoiceActivity", "InvoiceData: $invoiceData")
-
-        // Invoice template fields
         val invoiceNumberTemp: TextView = findViewById(R.id.invoiceNumberTemp)
         val issueDateTemp: TextView = findViewById(R.id.issueDateTemp)
         val sellDateTemp: TextView = findViewById(R.id.sellDateTemp)
 
-        // Seller fields
         val companyNameSellerTemp: TextView = findViewById(R.id.companyNameSellerTemp)
         val addressSellerTemp: TextView = findViewById(R.id.addressSellerTemp)
         val nipSellerTemp: TextView = findViewById(R.id.nipSellerTemp)
         val phoneNumberSellerTemp: TextView = findViewById(R.id.phoneNumberSellerTemp)
         val bankAccountNumberTemp: TextView = findViewById(R.id.bankAccountNumberTemp)
 
-        // Buyer fields
         val companyNameBuyerTemp: TextView = findViewById(R.id.companyNameBuyerTemp)
         val addressBuyerTemp: TextView = findViewById(R.id.addressBuyerTemp)
         val emailBuyerTemp: TextView = findViewById(R.id.emailBuyerTemp)
         val phoneNumberBuyerTemp: TextView = findViewById(R.id.phoneNumberBuyerTemp)
 
-        // Summary fields
         val priceNettoTemp: TextView = findViewById(R.id.priceNettoTemp)
         val priceVatTemp: TextView = findViewById(R.id.priceVatTemp)
         val priceBruttoTemp: TextView = findViewById(R.id.priceBruttoTemp)
@@ -48,12 +40,10 @@ class InvoiceActivity : AppCompatActivity() {
         val wholePriceTemp: TextView = findViewById(R.id.wholePriceTemp)
         val signatureSellerTemp: TextView = findViewById(R.id.signatureSellerTemp)
 
-        // Header data
         invoiceNumberTemp.text = "Faktura nr: ${invoiceData.invoiceNumber}"
         issueDateTemp.text = "Data wystawienia: ${invoiceData.issueDate}"
         sellDateTemp.text = "Data sprzedaży: ${invoiceData.sellDate}"
 
-        // Seller data
         companyNameSellerTemp.text = invoiceData.seller.companyName
         addressSellerTemp.text = invoiceData.seller.address
         nipSellerTemp.text = "NIP: ${invoiceData.seller.nip}"
@@ -67,11 +57,11 @@ class InvoiceActivity : AppCompatActivity() {
 
         val productsContainer = findViewById<LinearLayout>(R.id.productsContainer)
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        var totalNetto = 0.0
+        var totalVat = 0.0
+        var totalBrutto = 0.0
 
         for ((index, product) in invoiceData.products.withIndex()) {
-            // Log each product
-            Log.d("InvoiceActivity", "Product $index: $product")
-
             val productItemView = inflater.inflate(R.layout.product_item_template, null)
 
             val vatAmount = product.productPriceNetto * product.vatRate / 100
@@ -84,10 +74,19 @@ class InvoiceActivity : AppCompatActivity() {
             productItemView.findViewById<TextView>(R.id.productVatAmount).text = "${vatAmount} PLN"
             productItemView.findViewById<TextView>(R.id.productPriceBrutto).text = "${product.productPriceNetto + vatAmount} PLN"
 
-            // Add the product item view to the container
+            totalVat += vatAmount
+            totalNetto += product.productPriceNetto
+            totalBrutto += product.productPriceNetto + vatAmount
             productsContainer.addView(productItemView)
         }
+        val formattedNetto = String.format("%.2f", totalNetto)
+        val formattedVat = String.format("%.2f", totalVat)
+        val formattedBrutto = String.format("%.2f", totalBrutto)
 
+        priceNettoTemp.text = "${formattedNetto} PLN"
+        priceVatTemp.text = "${formattedVat} PLN"
+        priceBruttoTemp.text = "${formattedBrutto} PLN"
+        wholePriceTemp.text = "${formattedBrutto} PLN"
         paymentMethodTemp.text = invoiceData.paymentMethod
         paymentTargetDateTemp.text = invoiceData.paymentTargetDate
 

@@ -1,6 +1,5 @@
 package com.example.invoicegenius.ui.form
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,50 +7,39 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import com.example.invoicegenius.Buyer
 import com.example.invoicegenius.InvoiceActivity
 import com.example.invoicegenius.InvoiceData
-import com.example.invoicegenius.InvoiceView
-import com.example.invoicegenius.MainActivity
 import com.example.invoicegenius.Product
-import com.example.invoicegenius.R
 import com.example.invoicegenius.Seller
 import com.example.invoicegenius.databinding.FragmentFormBinding
 import com.google.gson.Gson
 
 open class FormFragment : Fragment() {
 
-    // Lazy initialization for views
     val invoiceNumber by lazy { binding.invoiceNumber }
 
-    // Seller data
     val companyNameSeller by lazy { binding.companyNameSeller }
     val addressSeller by lazy { binding.addressSeller }
     val nipSeller by lazy { binding.nipSeller }
     val bankAccountNumber by lazy { binding.bankAccountNumber }
     val phoneNumberSeller by lazy { binding.phoneNumberSeller }
 
-    // Buyer data
     val companyNameBuyer by lazy { binding.companyNameBuyer }
     val addressBuyer by lazy { binding.addressBuyer }
     val emailBuyer by lazy { binding.emailBuyer }
     val phoneNumberBuyer by lazy { binding.phoneNumberBuyer }
 
-    // Date
     val sellDate by lazy { binding.sellDate }
     val issueDate by lazy { binding.issueDate }
     val targetPaymentDate by lazy { binding.paymentTargetDate }
 
-    // Payment details
     val paymentMethod by lazy { binding.paymentMethod }
     val paymentDate by lazy { binding.paymentDate }
 
-    // Product positions
     val productPositions by lazy {
         listOf(
             ProductPositions(
@@ -91,8 +79,6 @@ open class FormFragment : Fragment() {
             )
         )
     }
-
-
     val submitButton by lazy { binding.validateButton }
 
     private var _binding: FragmentFormBinding? = null
@@ -112,7 +98,7 @@ open class FormFragment : Fragment() {
             Log.d("test-button", binding.validateButton.text.toString())
             if (validateForm()) {
                 var products: Array<Product> = emptyArray()
-                for (i in 0 until 3) {
+                for (i in 0 until 5) {
                     if (productPositions[i].productName.text.toString().isNotEmpty()) {
                         products += productPositions[i].getProduct()
                     }
@@ -143,7 +129,6 @@ open class FormFragment : Fragment() {
 
                 val gson = Gson()
                 val json = gson.toJson(invoiceData)
-
                 val intent = Intent(requireActivity(), InvoiceActivity::class.java)
                 intent.putExtra("invoiceData", json)
                 startActivity(intent)
@@ -152,71 +137,6 @@ open class FormFragment : Fragment() {
 
         return root
     }
-
-    private fun getProducts(): List<Map<String, String>> {
-        val products = mutableListOf<Map<String, String>>()
-
-        fun addProduct(
-            name: EditText,
-            amount: EditText,
-            measure: EditText,
-            price: EditText,
-            vat: EditText
-        ) {
-            if (name.text.isNotBlank() && amount.text.isNotBlank() && measure.text.isNotBlank() &&
-                price.text.isNotBlank() && vat.text.isNotBlank()
-            ) {
-                products.add(
-                    mapOf(
-                        "name" to name.text.toString(),
-                        "amount" to amount.text.toString(),
-                        "measure" to measure.text.toString(),
-                        "price" to price.text.toString(),
-                        "vat" to vat.text.toString()
-                    )
-                )
-            }
-        }
-
-        addProduct(
-            binding.productName1,
-            binding.productAmount1,
-            binding.productMeasure1,
-            binding.productPriceNetto1,
-            binding.productVatRate1
-        )
-        addProduct(
-            binding.productName2,
-            binding.productAmount2,
-            binding.productMeasure2,
-            binding.productPriceNetto2,
-            binding.productVatRate2
-        )
-        addProduct(
-            binding.productName3,
-            binding.productAmount3,
-            binding.productMeasure3,
-            binding.productPriceNetto3,
-            binding.productVatRate3
-        )
-        addProduct(
-            binding.productName4,
-            binding.productAmount4,
-            binding.productMeasure4,
-            binding.productPriceNetto4,
-            binding.productVatRate4
-        )
-        addProduct(
-            binding.productName5,
-            binding.productAmount5,
-            binding.productMeasure5,
-            binding.productPriceNetto5,
-            binding.productVatRate5
-        )
-
-        return products
-    }
-
     private fun validateForm(): Boolean {
         val errors = mutableListOf<String>()
         if (companyNameSeller.text.isNullOrBlank()) errors.add("Nazwa firmy sprzedawcy jest wymagana.")

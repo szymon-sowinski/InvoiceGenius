@@ -67,7 +67,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="23/265/34"
                 android:hint="Numer faktury*"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -131,7 +130,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="Śrubex"
                 android:hint="Nazwa firmy*"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -153,7 +151,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Adres*"
-                android:text="Radzymin, Kwiatowa 12"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -173,7 +170,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="14252525256"
                 android:hint="NIP*"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -193,7 +189,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="123456789009876543211234"
                 android:hint="Numer konta bankowego*"
                 android:inputType="number"
                 android:paddingStart="8dp"
@@ -213,7 +208,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="789675423"
                 android:hint="Numer telefonu*"
                 android:inputType="number"
                 android:paddingStart="8dp"
@@ -279,7 +273,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="Jan Gwiazda"
                 android:hint="Nazwa firmy/Imię i nazwisko*"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -302,7 +295,6 @@
                 android:ems="10"
                 android:hint="Adres*"
                 android:inputType="text"
-                android:text="Marki, Gwiezdna 10"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -322,7 +314,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Adres email*"
-                android:text="jgwiazda@wp.pl"
                 android:inputType="textEmailAddress"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -341,7 +332,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="567345123"
                 android:hint="Numer telefonu*"
                 android:inputType="number"
                 android:paddingStart="8dp"
@@ -408,7 +398,6 @@
                 android:ems="10"
                 android:hint="Data sprzedaży*"
                 android:inputType="date"
-                android:text="12.04.2024"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -429,7 +418,6 @@
                 android:ems="10"
                 android:hint="Data wystawienia faktury*"
                 android:inputType="date"
-                android:text="12.04.2024"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
@@ -494,7 +482,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Metoda płatności*"
-                android:text="Karta"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -514,7 +501,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="23.04.2024"
                 android:hint="Data płatności*"
                 android:inputType="date"
                 android:paddingStart="8dp"
@@ -534,7 +520,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="23.04.2024"
                 android:hint="Termin płatności*"
                 android:inputType="date"
                 android:paddingStart="8dp"
@@ -619,7 +604,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Nazwa produktu"
-                android:text="Kwas"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -639,7 +623,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="1"
                 android:hint="Ilość"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
@@ -660,7 +643,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="gramy"
                 android:hint="Jednostka miary"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -681,7 +663,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="2137"
                 android:hint="Cena netto[zł]"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
@@ -702,7 +683,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="23"
                 android:hint="Stawka podatku VAT[%]"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
@@ -756,7 +736,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="mobilki"
                 android:hint="Nazwa produktu"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -778,7 +757,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Ilość"
-                android:text="47"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -798,7 +776,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="gramy"
                 android:hint="Jednostka miary"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -820,7 +797,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Cena netto[zł]"
-                android:text="2137"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -840,7 +816,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="23"
                 android:hint="Stawka podatku VAT[%]"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
@@ -894,7 +869,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="dupa"
                 android:hint="Nazwa produktu"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -916,7 +890,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Ilość"
-                android:text="47"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -936,7 +909,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="oki"
                 android:hint="Jednostka miary"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -958,7 +930,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Cena netto[zł]"
-                android:text="4747"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -978,7 +949,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="12"
                 android:hint="Stawka podatku VAT[%]"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
@@ -1032,7 +1002,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="poki"
                 android:hint="Nazwa produktu"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -1053,7 +1022,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="47"
                 android:hint="Ilość"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
@@ -1074,7 +1042,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="gramy"
                 android:hint="Jednostka miary"
                 android:inputType="text"
                 android:paddingStart="8dp"
@@ -1096,7 +1063,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Cena netto[zł]"
-                android:text="23"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -1116,7 +1082,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="35"
                 android:hint="Stawka podatku VAT[%]"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
@@ -1171,7 +1136,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Nazwa produktu"
-                android:text="isjis"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -1192,7 +1156,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Ilość"
-                android:text="67"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -1213,7 +1176,6 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Jednostka miary"
-                android:text="gramy"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
@@ -1233,7 +1195,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
-                android:text="2137"
                 android:hint="Cena netto[zł]"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
@@ -1255,64 +1216,11 @@
                 android:background="@drawable/edittext_selector"
                 android:ems="10"
                 android:hint="Stawka podatku VAT[%]"
-                android:text="23"
                 android:inputType="numberDecimal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp" />
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/radioGroupText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="69dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="70dp"
-            android:text="Proszę wybrać format generowanej faktury:"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/productPosition5" />
-
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/radioGroupText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <RadioButton
-                android:id="@+id/radioButton1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="XML" />
-
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="XLS" />
-
-            <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="PDF" />
-
-            <RadioButton
-                android:id="@+id/radioButton4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="JPG"/>
-            <RadioButton
-                android:id="@+id/radioButton5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DOCX" />
-        </RadioGroup>
 
         <Button
             android:id="@+id/validateButton"
@@ -1324,7 +1232,7 @@
             android:text="Generuj fakturę"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            app:layout_constraintTop_toBottomOf="@+id/productPosition5" />
 
         <TextView
             android:id="@+id/warnings"

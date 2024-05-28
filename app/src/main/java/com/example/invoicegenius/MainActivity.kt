@@ -11,8 +11,6 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.invoicegenius.databinding.ActivityMainBinding
-import com.example.invoicegenius.ui.form.FormFragment
-
 
 class MainActivity : AppCompatActivity() {
 

@@ -26,7 +26,6 @@ class FileFragment : Fragment() {
 
     private var _binding: FragmentFileBinding? = null
 
-    // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
     private val requestFilePermissionLauncher =
