@@ -1,26 +1,37 @@
 package com.example.invoicegenius
 
-import android.Manifest
-import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
-import android.os.Bundle
-import android.os.Environment
-import android.view.LayoutInflater
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
-import com.google.gson.Gson
-import com.itextpdf.kernel.pdf.PdfWriter
-import com.itextpdf.layout.Document
-import com.itextpdf.layout.element.Paragraph
-import java.io.File
-import java.io.FileOutputStream
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.view.LayoutInflater;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+
+import com.google.gson.Gson;
+import com.itextpdf.kernel.colors.ColorConstants;
+import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.UnitValue;
+import com.itextpdf.layout.property.VerticalAlignment;
+
+import java.io.File;
+import java.io.FileOutputStream;
 class InvoiceActivity : AppCompatActivity() {
 
     private val REQUEST_WRITE_PERMISSION = 786
@@ -122,52 +133,85 @@ class InvoiceActivity : AppCompatActivity() {
     private fun generatePdf(invoiceData: InvoiceData): File {
         val file = File(getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "invoice.pdf")
         val pdfWriter = PdfWriter(FileOutputStream(file))
-        val pdfDocument = com.itextpdf.kernel.pdf.PdfDocument(pdfWriter)
+        val pdfDocument = PdfDocument(pdfWriter)
         val document = Document(pdfDocument)
 
-        document.add(Paragraph("Faktura nr: ${invoiceData.invoiceNumber}"))
-        document.add(Paragraph("Data wystawienia: ${invoiceData.issueDate}"))
-        document.add(Paragraph("Data sprzedaży: ${invoiceData.sellDate}"))
-        document.add(Paragraph("Sprzedawca: ${invoiceData.seller.companyName}"))
-        document.add(Paragraph("Adres: ${invoiceData.seller.address}"))
-        document.add(Paragraph("NIP: ${invoiceData.seller.nip}"))
-        document.add(Paragraph("Telefon: ${invoiceData.seller.phoneNumber}"))
-        document.add(Paragraph("Numer konta: ${invoiceData.seller.bankAccountNumber}"))
+        val bold = PdfFontFactory.createFont(com.itextpdf.io.font.constants.StandardFonts.HELVETICA_BOLD)
+        val regular = PdfFontFactory.createFont(com.itextpdf.io.font.constants.StandardFonts.HELVETICA)
 
-        document.add(Paragraph("Nabywca: ${invoiceData.buyer.companyName}"))
-        document.add(Paragraph("Adres: ${invoiceData.buyer.address}"))
-        document.add(Paragraph("Email: ${invoiceData.buyer.email}"))
-        document.add(Paragraph("Telefon: ${invoiceData.buyer.phoneNumber}"))
+        // Add header
+        val headerTable = Table(floatArrayOf(1f, 1f))
+        headerTable.setWidth(UnitValue.createPercentValue(100f))
+        headerTable.addCell(Cell().add(Paragraph("Faktura nr: ${invoiceData.invoiceNumber}").setFont(bold)))
+        headerTable.addCell(Cell().add(Paragraph("Data wystawienia: ${invoiceData.issueDate}\nData sprzedaży: ${invoiceData.sellDate}").setFont(bold)))
+        document.add(headerTable)
 
-        var totalNetto = 0.0
-        var totalVat = 0.0
-        var totalBrutto = 0.0
+        // Add seller and buyer information
+        val infoTable = Table(floatArrayOf(1f, 1f))
+        infoTable.setWidth(UnitValue.createPercentValue(100f))
+        infoTable.addCell(Cell().add(Paragraph("Sprzedawca:\n${invoiceData.seller.companyName}\n${invoiceData.seller.address}\nNIP: ${invoiceData.seller.nip}\nTelefon: ${invoiceData.seller.phoneNumber}\nNumer konta: ${invoiceData.seller.bankAccountNumber}").setFont(regular)))
+        infoTable.addCell(Cell().add(Paragraph("Nabywca:\n${invoiceData.buyer.companyName}\n${invoiceData.buyer.address}\n${invoiceData.buyer.email}\nTelefon: ${invoiceData.buyer.phoneNumber}").setFont(regular)))
+        document.add(infoTable)
+
+        // Add products table
+        val productTable = Table(floatArrayOf(1f, 3f, 1f, 1f, 1f, 1f, 1f))
+        productTable.setWidth(UnitValue.createPercentValue(100f))
+        productTable.addHeaderCell(Cell().add(Paragraph("Lp.").setFont(bold)))
+        productTable.addHeaderCell(Cell().add(Paragraph("Nazwa towaru/usługi").setFont(bold)))
+        productTable.addHeaderCell(Cell().add(Paragraph("Ilość").setFont(bold)))
+        productTable.addHeaderCell(Cell().add(Paragraph("Jed. miary").setFont(bold)))
+        productTable.addHeaderCell(Cell().add(Paragraph("Cena netto").setFont(bold)))
+        productTable.addHeaderCell(Cell().add(Paragraph("VAT").setFont(bold)))
+        productTable.addHeaderCell(Cell().add(Paragraph("Cena brutto").setFont(bold)))
 
         for ((index, product) in invoiceData.products.withIndex()) {
             val vatAmount = product.productPriceNetto * product.vatRate / 100
-            document.add(Paragraph("Produkt ${index + 1}: ${product.productName}"))
-            document.add(Paragraph("Ilość: ${product.productAmount}"))
-            document.add(Paragraph("Jednostka: ${product.productMeasure}"))
-            document.add(Paragraph("Cena netto: ${product.productPriceNetto} PLN"))
-            document.add(Paragraph("Stawka VAT: ${product.vatRate}%"))
-            document.add(Paragraph("Kwota VAT: ${vatAmount} PLN"))
-            document.add(Paragraph("Cena brutto: ${product.productPriceNetto + vatAmount} PLN"))
-
-            totalNetto += product.productPriceNetto
-            totalVat += vatAmount
-            totalBrutto += product.productPriceNetto + vatAmount
+            val productPriceBrutto = product.productPriceNetto + vatAmount
+            productTable.addCell(Cell().add(Paragraph((index + 1).toString())))
+            productTable.addCell(Cell().add(Paragraph(product.productName)))
+            productTable.addCell(Cell().add(Paragraph(product.productAmount.toString())))
+            productTable.addCell(Cell().add(Paragraph(product.productMeasure)))
+            productTable.addCell(Cell().add(Paragraph(String.format("%.2f PLN", product.productPriceNetto))))
+            productTable.addCell(Cell().add(Paragraph(String.format("%.2f%%", product.vatRate))))
+            productTable.addCell(Cell().add(Paragraph(String.format("%.2f PLN", productPriceBrutto))))
         }
+        document.add(productTable)
 
-        val formattedNetto = String.format("%.2f", totalNetto)
-        val formattedVat = String.format("%.2f", totalVat)
-        val formattedBrutto = String.format("%.2f", totalBrutto)
+        // Add summary
+        val summaryTable = Table(floatArrayOf(1f, 1f, 1f))
+        summaryTable.setWidth(UnitValue.createPercentValue(100f))
+        summaryTable.addCell(Cell(1, 3).add(Paragraph("Podsumowanie:").setFont(bold)))
+        summaryTable.addCell(Cell().add(Paragraph("Netto").setFont(bold)))
+        summaryTable.addCell(Cell().add(Paragraph("VAT").setFont(bold)))
+        summaryTable.addCell(Cell().add(Paragraph("Brutto").setFont(bold)))
+        summaryTable.addCell(Cell().add(Paragraph(String.format("%.2f PLN", invoiceData.products.sumByDouble { it.productPriceNetto.toDouble() }))))
+        summaryTable.addCell(Cell().add(Paragraph(String.format("%.2f PLN", invoiceData.products.sumByDouble { (it.productPriceNetto * it.vatRate / 100).toDouble() }))))
+        summaryTable.addCell(Cell().add(Paragraph(String.format("%.2f PLN", invoiceData.products.sumByDouble { (it.productPriceNetto * (1 + it.vatRate / 100)).toDouble() }))))
+        document.add(summaryTable)
 
-        document.add(Paragraph("Cena netto: $formattedNetto PLN"))
-        document.add(Paragraph("VAT: $formattedVat PLN"))
-        document.add(Paragraph("Cena brutto: $formattedBrutto PLN"))
+        // Add payment info
+        val paymentTable = Table(floatArrayOf(1f, 1f, 1f))
+        paymentTable.setWidth(UnitValue.createPercentValue(100f))
+        paymentTable.addCell(Cell(1, 3).add(Paragraph("Do zapłaty:").setFont(bold)))
+        paymentTable.addCell(Cell().add(Paragraph("Sposób zapłaty").setFont(bold)))
+        paymentTable.addCell(Cell().add(Paragraph("Termin płatności").setFont(bold)))
+        paymentTable.addCell(Cell().add(Paragraph("Kwota do zapłaty").setFont(bold)))
+        paymentTable.addCell(Cell().add(Paragraph(invoiceData.paymentMethod)))
+        paymentTable.addCell(Cell().add(Paragraph(invoiceData.paymentTargetDate)))
+        paymentTable.addCell(Cell().add(Paragraph(String.format("%.2f PLN", invoiceData.products.sumByDouble { (it.productPriceNetto * (1 + it.vatRate / 100)).toDouble() }))))
+        document.add(paymentTable)
 
-        document.add(Paragraph("Metoda płatności: ${invoiceData.paymentMethod}"))
-        document.add(Paragraph("Termin płatności: ${invoiceData.paymentTargetDate}"))
+        // Add footer
+        val footerTable = Table(floatArrayOf(1f, 1f))
+        footerTable.setWidth(UnitValue.createPercentValue(100f))
+        footerTable.addCell(Cell().add(Paragraph("Wystawił:").setFont(bold)))
+        footerTable.addCell(Cell().add(Paragraph("Otrzymał:").setFont(bold)))
+        footerTable.addCell(Cell().add(Paragraph(invoiceData.seller.companyName)))
+        footerTable.addCell(Cell())
+        document.add(footerTable)
+
+        // Add footer note
+        document.add(Paragraph("Faktura wygenerowana przez: InvoiceGenius").setFont(regular).setFontSize(10f).setTextAlignment(com.itextpdf.layout.property.TextAlignment.CENTER))
 
         document.close()
         return file
@@ -183,7 +227,6 @@ class InvoiceActivity : AppCompatActivity() {
         val chooser = Intent.createChooser(intent, "Open PDF")
         startActivity(chooser)
     }
-
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_WRITE_PERMISSION) {
