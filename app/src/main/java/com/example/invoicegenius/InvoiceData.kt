@@ -1,7 +1,7 @@
 package com.example.invoicegenius
 
 data class InvoiceData(
-    val seller: Seller,
+    var seller: Seller,
     val buyer: Buyer,
     val sellDate: String,
     val issueDate: String,
@@ -9,5 +9,5 @@ data class InvoiceData(
     val paymentDate: String,
     val paymentTargetDate: String,
     val products: List<Product>,
-    val invoiceNumber: String
+    var invoiceNumber: String
 )

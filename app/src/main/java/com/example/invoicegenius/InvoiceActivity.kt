@@ -147,12 +147,10 @@ class InvoiceActivity : AppCompatActivity() {
         val pdfDocument = PdfDocument(pdfWriter)
         val document = Document(pdfDocument)
 
-        // Load the font that supports Polish characters
         val fontStream = assets.open("lato_regular.ttf")
         val fontBytes = fontStream.readBytes()
         val font = PdfFontFactory.createFont(fontBytes, PdfEncodings.IDENTITY_H)
 
-        // Add header
         val headerTable = Table(floatArrayOf(1f, 1f))
         headerTable.setWidth(UnitValue.createPercentValue(100f))
         headerTable.addCell(
@@ -171,26 +169,24 @@ class InvoiceActivity : AppCompatActivity() {
         )
         document.add(headerTable)
 
-        // Add seller and buyer information
         val infoTable = Table(floatArrayOf(1f, 1f))
         infoTable.setWidth(UnitValue.createPercentValue(100f))
         infoTable.addCell(
             Cell().add(
-                Paragraph("Sprzedawca:\n${invoiceData.seller.companyName}\n${invoiceData.seller.address}\nNIP: ${invoiceData.seller.nip}\nTelefon: ${invoiceData.seller.phoneNumber}\nNumer konta: ${invoiceData.seller.bankAccountNumber}").setFont(
+                Paragraph("Sprzedawca: ${invoiceData.seller.companyName}\n${invoiceData.seller.address}\nNIP: ${invoiceData.seller.nip}\nTelefon: ${invoiceData.seller.phoneNumber}\nNumer konta: ${invoiceData.seller.bankAccountNumber}").setFont(
                     font
                 )
             )
         )
         infoTable.addCell(
             Cell().add(
-                Paragraph("Nabywca:\n${invoiceData.buyer.companyName}\n${invoiceData.buyer.address}\n${invoiceData.buyer.email}\nTelefon: ${invoiceData.buyer.phoneNumber}").setFont(
+                Paragraph("Nabywca: ${invoiceData.buyer.companyName}\n${invoiceData.buyer.address}\nEmail: ${invoiceData.buyer.email}\nTelefon: ${invoiceData.buyer.phoneNumber}").setFont(
                     font
                 )
             )
         )
         document.add(infoTable)
 
-        // Add products table
         val productTable = Table(floatArrayOf(1f, 3f, 1f, 1f, 1f, 1f, 1f))
         productTable.setWidth(UnitValue.createPercentValue(100f))
         productTable.addHeaderCell(Cell().add(Paragraph("Lp.").setFont(font)))
@@ -304,7 +300,6 @@ class InvoiceActivity : AppCompatActivity() {
 
         document.add(paymentTable)
 
-        // Add footer
         val footerTable = Table(floatArrayOf(1f, 1f))
         footerTable.setWidth(UnitValue.createPercentValue(100f))
         footerTable.addCell(Cell().add(Paragraph("Wystawił:").setFont(font)))
@@ -313,7 +308,6 @@ class InvoiceActivity : AppCompatActivity() {
         footerTable.addCell(Cell())
         document.add(footerTable)
 
-        // Add footer note
         document.add(
             Paragraph("Faktura wygenerowana przez: InvoiceGenius").setFont(font).setFontSize(10f)
                 .setTextAlignment(

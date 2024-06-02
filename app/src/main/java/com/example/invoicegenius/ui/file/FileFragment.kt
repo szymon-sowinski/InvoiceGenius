@@ -17,15 +17,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.invoicegenius.databinding.FragmentFileBinding
-import com.google.gson.Gson
-import org.xmlpull.v1.XmlPullParser
-import org.xmlpull.v1.XmlPullParserFactory
-import java.io.InputStreamReader
 
 class FileFragment : Fragment() {
 
     private var _binding: FragmentFileBinding? = null
-
     private val binding get() = _binding!!
 
     private val requestFilePermissionLauncher =
@@ -51,9 +46,6 @@ class FileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val fileViewModel =
-            ViewModelProvider(this).get(FileViewModel::class.java)
-
         _binding = FragmentFileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -66,8 +58,23 @@ class FileFragment : Fragment() {
             }
         }
 
+        binding.generateButton.setOnClickListener {
+            val filePath = binding.tvFilePath.text.toString()
+            if (filePath.isNotEmpty() && fileUri != null) {
+                val intent = Intent(requireContext(), GeneratePdfActivity::class.java).apply {
+                    putExtra("file_uri", fileUri)
+                    putExtra("file_name", filePath)
+                }
+                startActivity(intent)
+            } else {
+                Toast.makeText(requireContext(), "Proszę załączyć plik przed wygenerowaniem PDF.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         return root
     }
+
+    private var fileUri: Uri? = null
 
     private fun chooseFile() {
         val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
@@ -83,8 +90,8 @@ class FileFragment : Fragment() {
             it.moveToFirst()
             val fileName = it.getString(nameIndex)
             if (isValidFile(fileName)) {
+                fileUri = uri
                 binding.tvFilePath.text = fileName
-                readFileContent(uri, fileName)
             } else {
                 showInvalidFileDialog()
             }
@@ -100,60 +107,6 @@ class FileFragment : Fragment() {
         AlertDialog.Builder(requireContext())
             .setTitle("Nieobsługiwany plik")
             .setMessage("Proszę załączyć plik z rozszerzeniem .xml lub .json.")
-            .setPositiveButton("OK") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .show()
-    }
-
-    private fun readFileContent(uri: Uri, fileName: String) {
-        val inputStream = requireContext().contentResolver.openInputStream(uri)
-        inputStream?.use {
-            when {
-                fileName.endsWith(".json", true) -> {
-                    val reader = InputStreamReader(it)
-                    val data = Gson().fromJson(reader, Map::class.java)
-                    displayData(data)
-                }
-                fileName.endsWith(".xml", true) -> {
-                    val factory = XmlPullParserFactory.newInstance()
-                    val parser = factory.newPullParser()
-                    parser.setInput(it, null)
-                    val data = parseXml(parser)
-                    displayData(data)
-                }
-            }
-        }
-    }
-
-    private fun parseXml(parser: XmlPullParser): Map<String, Any> {
-        val result = mutableMapOf<String, Any>()
-        var eventType = parser.eventType
-        var currentTag: String? = null
-        while (eventType != XmlPullParser.END_DOCUMENT) {
-            when (eventType) {
-                XmlPullParser.START_TAG -> {
-                    currentTag = parser.name
-                }
-                XmlPullParser.TEXT -> {
-                    currentTag?.let {
-                        result[it] = parser.text
-                    }
-                }
-                XmlPullParser.END_TAG -> {
-                    currentTag = null
-                }
-            }
-            eventType = parser.next()
-        }
-        return result
-    }
-
-    private fun displayData(data: Map<*, *>) {
-        val dataString = data.entries.joinToString(separator = "\n") { "${it.key}: ${it.value}" }
-        AlertDialog.Builder(requireContext())
-            .setTitle("File Content")
-            .setMessage(dataString)
             .setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
             }
