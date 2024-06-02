@@ -3,4 +3,7 @@
     <item android:drawable="@drawable/edittext_border_focused" android:state_focused="true" />
     =
     <item android:drawable="@drawable/edittext_border" />
+    <item android:drawable="@drawable/edittext_background_selected" android:state_selected="true" />
+    <item android:drawable="@drawable/edittext_background_focused" android:state_focused="true" />
+    <item android:drawable="@drawable/edittext_background_default" />
 </selector>

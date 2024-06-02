@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background_color">#FFFFFF</color>
     <color name="app_name_color">#212121</color>
+    <color name="colorRed">#FF0000</color>
     <color name="slogan_color">#757575</color>
 </resources>
