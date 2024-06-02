@@ -25,6 +25,8 @@ import com.itextpdf.layout.element.Paragraph
 import com.itextpdf.layout.element.Table
 import com.itextpdf.layout.property.TextAlignment
 import com.itextpdf.layout.property.UnitValue
+import org.xmlpull.v1.XmlPullParser
+import org.xmlpull.v1.XmlPullParserFactory
 import java.io.File
 import java.io.InputStream
 import java.io.InputStreamReader
@@ -71,10 +73,158 @@ class GeneratePdfActivity : AppCompatActivity() {
                 }
 
                 fileName.endsWith(".xml", true) -> {
-                    // Obsługa plików XML
+                    val invoiceData = readInvoiceDataFromXml(it)
+                    if (ContextCompat.checkSelfPermission(
+                            this,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE
+                        ) != PackageManager.PERMISSION_GRANTED
+                    ) {
+                        ActivityCompat.requestPermissions(
+                            this,
+                            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                            REQUEST_WRITE_PERMISSION
+                        )
+                    } else {
+                        generatePdf(invoiceData)
+                    }
                 }
             }
         }
+    }
+
+    private fun readInvoiceDataFromXml(inputStream: InputStream): InvoiceData {
+        val parserFactory = XmlPullParserFactory.newInstance()
+        val parser = parserFactory.newPullParser()
+        parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false)
+        parser.setInput(inputStream, null)
+
+        var eventType = parser.eventType
+        var invoiceNumber = ""
+        var seller: Seller? = null
+        var buyer: Buyer? = null
+        var sellDate = ""
+        var issueDate = ""
+        var targetPaymentDate = ""
+        var paymentMethod = ""
+        var paymentDate = ""
+        val products = mutableListOf<Product>()
+
+        while (eventType != XmlPullParser.END_DOCUMENT) {
+            when (eventType) {
+                XmlPullParser.START_TAG -> {
+                    when (parser.name) {
+                        "numer_faktury" -> invoiceNumber = parser.nextText()
+                        "sprzedawca" -> seller = readSeller(parser)
+                        "nabywca" -> buyer = readBuyer(parser)
+                        "data_sprzedazy" -> sellDate = parser.nextText()
+                        "data_wystawienia_faktury" -> issueDate = parser.nextText()
+                        "termin_platnosci" -> targetPaymentDate = parser.nextText()
+                        "metoda_platnosci" -> paymentMethod = parser.nextText()
+                        "data_platnosci" -> paymentDate = parser.nextText()
+                        "produkty" -> products.addAll(readProducts(parser))
+                    }
+                }
+            }
+            eventType = parser.next()
+        }
+
+        return InvoiceData(
+            invoiceNumber = invoiceNumber,
+            seller = seller ?: Seller("", "", "", "", ""),
+            buyer = buyer ?: Buyer("", "", "", ""),
+            sellDate = sellDate,
+            issueDate = issueDate,
+            paymentTargetDate = targetPaymentDate,
+            paymentMethod = paymentMethod,
+            paymentDate = paymentDate,
+            products = products
+        )
+    }
+
+    private fun readSeller(parser: XmlPullParser): Seller {
+        var companyName = ""
+        var address = ""
+        var nip = ""
+        var bankAccountNumber = ""
+        var phoneNumber = ""
+
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.eventType != XmlPullParser.START_TAG) {
+                continue
+            }
+            when (parser.name) {
+                "nazwa_firmy" -> companyName = parser.nextText()
+                "adres" -> address = parser.nextText()
+                "nip" -> nip = parser.nextText()
+                "numer_konta_bankowego" -> bankAccountNumber = parser.nextText()
+                "numer_telefonu" -> phoneNumber = parser.nextText()
+            }
+        }
+
+        return Seller(companyName, address, nip, bankAccountNumber, phoneNumber)
+    }
+
+    private fun readBuyer(parser: XmlPullParser): Buyer {
+        var companyName = ""
+        var address = ""
+        var email = ""
+        var phoneNumber = ""
+
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.eventType != XmlPullParser.START_TAG) {
+                continue
+            }
+            when (parser.name) {
+                "nazwa_firmy" -> companyName = parser.nextText()
+                "adres" -> address = parser.nextText()
+                "email" -> email = parser.nextText()
+                "telefon" -> phoneNumber = parser.nextText()
+            }
+        }
+
+        return Buyer(companyName, address, email, phoneNumber)
+    }
+
+    private fun readProducts(parser: XmlPullParser): List<Product> {
+        val products = mutableListOf<Product>()
+        var eventType = parser.eventType
+
+        while (eventType != XmlPullParser.END_DOCUMENT) {
+            if (eventType == XmlPullParser.START_TAG && parser.name == "produkt") {
+                products.add(readProduct(parser))
+            }
+
+            if (eventType == XmlPullParser.END_TAG && parser.name == "produkty") {
+                break
+            }
+
+            eventType = parser.next()
+        }
+
+        return products
+    }
+
+    private fun readProduct(parser: XmlPullParser): Product {
+        var productName = ""
+        var productAmount = 0.0f
+        var productMeasure = ""
+        var productPriceNetto = 0.0f
+        var vatRate = 0.0f
+
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.eventType != XmlPullParser.START_TAG) {
+                continue
+            }
+            when (parser.name) {
+                "nazwa_produktu" -> productName = parser.nextText()
+                "ilosc_produktu" -> productAmount = parser.nextText().toFloat()
+                "jednostka_miary" -> productMeasure = parser.nextText()
+                "cena_netto" -> productPriceNetto = parser.nextText().toFloat()
+                "stawka_podatku_vat" -> vatRate = parser.nextText().toFloat()
+            }
+        }
+
+        return Product(productName, productAmount, productMeasure, productPriceNetto, vatRate)
     }
 
     private fun readInvoiceDataFromJson(inputStream: InputStream): InvoiceData {
@@ -149,7 +299,6 @@ class GeneratePdfActivity : AppCompatActivity() {
     }
 
 
-
     private fun generatePdf(invoiceData: InvoiceData) {
         val file = File(getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "faktura.pdf")
 
@@ -208,21 +357,62 @@ class GeneratePdfActivity : AppCompatActivity() {
             productTable.addCell(Cell().add(Paragraph(product.productName)))
             productTable.addCell(Cell().add(Paragraph(product.productAmount.toString())))
             productTable.addCell(Cell().add(Paragraph(product.productMeasure)))
-            productTable.addCell(Cell().add(Paragraph(String.format("%.2f PLN", product.productPriceNetto))))
+            productTable.addCell(
+                Cell().add(
+                    Paragraph(
+                        String.format(
+                            "%.2f PLN",
+                            product.productPriceNetto
+                        )
+                    )
+                )
+            )
             productTable.addCell(Cell().add(Paragraph(String.format("%.2f%%", product.vatRate))))
-            productTable.addCell(Cell().add(Paragraph(String.format("%.2f PLN", productPriceBrutto))))
+            productTable.addCell(
+                Cell().add(
+                    Paragraph(
+                        String.format(
+                            "%.2f PLN",
+                            productPriceBrutto
+                        )
+                    )
+                )
+            )
         }
         document.add(productTable)
-
         val summaryTable = Table(floatArrayOf(1f, 1f, 1f))
         summaryTable.setWidth(UnitValue.createPercentValue(100f))
         summaryTable.addCell(Cell(1, 3).add(Paragraph("Podsumowanie:")))
         summaryTable.addCell(Cell().add(Paragraph("Netto")))
         summaryTable.addCell(Cell().add(Paragraph("VAT")))
         summaryTable.addCell(Cell().add(Paragraph("Brutto")))
-        summaryTable.addCell(Cell().add(Paragraph(String.format("%.2f PLN", invoiceData.products.sumByDouble { it.productPriceNetto.toDouble() }))))
-        summaryTable.addCell(Cell().add(Paragraph(String.format("%.2f PLN", invoiceData.products.sumByDouble { (it.productPriceNetto * it.vatRate / 100).toDouble() }))))
-        summaryTable.addCell(Cell().add(Paragraph(String.format("%.2f PLN", invoiceData.products.sumByDouble { ((it.productPriceNetto * (1 + it.vatRate / 100)).toDouble()) }))))
+        summaryTable.addCell(
+            Cell().add(
+                Paragraph(
+                    String.format(
+                        "%.2f PLN",
+                        invoiceData.products.sumByDouble { it.productPriceNetto.toDouble() })
+                )
+            )
+        )
+        summaryTable.addCell(
+            Cell().add(
+                Paragraph(
+                    String.format(
+                        "%.2f PLN",
+                        invoiceData.products.sumByDouble { (it.productPriceNetto * it.vatRate / 100).toDouble() })
+                )
+            )
+        )
+        summaryTable.addCell(
+            Cell().add(
+                Paragraph(
+                    String.format(
+                        "%.2f PLN",
+                        invoiceData.products.sumByDouble { ((it.productPriceNetto * (1 + it.vatRate / 100)).toDouble()) })
+                )
+            )
+        )
         document.add(summaryTable)
 
         val paymentTable = Table(floatArrayOf(1f, 1f, 1f))
@@ -233,7 +423,15 @@ class GeneratePdfActivity : AppCompatActivity() {
         paymentTable.addCell(Cell().add(Paragraph("Kwota do zapłaty")))
         paymentTable.addCell(Cell().add(Paragraph(invoiceData.paymentMethod)))
         paymentTable.addCell(Cell().add(Paragraph(invoiceData.paymentTargetDate)))
-        paymentTable.addCell(Cell().add(Paragraph(String.format("%.2f PLN", invoiceData.products.sumByDouble { ((it.productPriceNetto * (1 + it.vatRate / 100)).toDouble()) }))))
+        paymentTable.addCell(
+            Cell().add(
+                Paragraph(
+                    String.format(
+                        "%.2f PLN",
+                        invoiceData.products.sumByDouble { ((it.productPriceNetto * (1 + it.vatRate / 100)).toDouble()) })
+                )
+            )
+        )
         document.add(paymentTable)
 
         val footerTable = Table(floatArrayOf(1f, 1f))
@@ -244,7 +442,10 @@ class GeneratePdfActivity : AppCompatActivity() {
         footerTable.addCell(Cell())
         document.add(footerTable)
 
-        document.add(Paragraph("Faktura wygenerowana przez: InvoiceGenius").setFontSize(10f).setTextAlignment(TextAlignment.CENTER))
+        document.add(
+            Paragraph("Faktura wygenerowana przez: InvoiceGenius").setFontSize(10f)
+                .setTextAlignment(TextAlignment.CENTER)
+        )
 
         document.close()
 
@@ -266,6 +467,7 @@ class GeneratePdfActivity : AppCompatActivity() {
         val chooser = Intent.createChooser(intent, "Open PDF")
         startActivity(chooser)
     }
+
     companion object {
         private const val REQUEST_WRITE_PERMISSION = 100
     }

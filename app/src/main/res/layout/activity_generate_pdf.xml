@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:gravity="center_horizontal"
     tools:context=".ui.file.GeneratePdfActivity">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Generating PDF..."
+        android:gravity="center_horizontal"
+        android:text="Generowanie pliku PDF..."
         android:textSize="16sp" />
 </LinearLayout>
