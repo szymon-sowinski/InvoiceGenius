@@ -25,7 +25,7 @@ Menu nawigacyjne aplikacji InvoiceGenius zawiera następujące opcje:
 
 Każda z tych opcji jest zilustrowana odpowiednią ikoną, co ułatwia nawigację i użytkowanie aplikacji.
 
-<img src="app/src/main/res/drawable/strona-glowna.jpg" alt="Ekran główny aplikacji" width="250">
+<img src="app/src/main/res/drawable/strona_glowna.jpg" alt="Ekran główny aplikacji" width="250">
 <img src="app/src/main/res/drawable/menu.jpg" alt="Menu nawigacyjne" width="250">
 
 ### Formularz wprowadzania danych
@@ -182,11 +182,13 @@ Ta klasa reprezentuje dane faktury w systemie fakturowania. Zawiera wszystkie in
 
 
 ### InvoiceActivity
+
 #### Aktywność InvoiceActivity
 
 Ta aktywność jest odpowiedzialna za wyświetlanie faktury na podstawie danych otrzymanych przez Intent. Aktywność ta wyświetla dane faktury, w tym informacje o sprzedawcy i kupującym, pozycje produktów oraz podsumowanie kwotowe.
 
 ##### Kluczowe metody i pola:
+
 - `onCreate(Bundle)`: Metoda wywoływana przy tworzeniu aktywności, w której inicjowana jest logika wyświetlania faktury na podstawie danych przekazanych przez Intent.
 - `invoiceNumberTemp`, `issueDateTemp`, `sellDateTemp`: TextViews wyświetlające numer faktury, datę wystawienia i datę sprzedaży.
 - `companyNameSellerTemp`, `addressSellerTemp`, `nipSellerTemp`, `phoneNumberSellerTemp`, `bankAccountNumberTemp`: TextViews wyświetlające informacje o sprzedawcy.
@@ -194,6 +196,14 @@ Ta aktywność jest odpowiedzialna za wyświetlanie faktury na podstawie danych 
 - `priceNettoTemp`, `priceVatTemp`, `priceBruttoTemp`, `paymentMethodTemp`, `paymentTargetDateTemp`, `wholePriceTemp`, `signatureSellerTemp`: TextViews wyświetlające informacje dotyczące kwot oraz metody płatności.
 - `productsContainer`: Kontener LinearLayout, do którego dodawane są pozycje produktów.
 - `Gson()`: Obiekt Gson służący do deserializacji danych faktury.
+
+#### Generowanie pliku PDF
+
+W celu utworzenia pliku PDF faktury, używana jest metoda `generatePdf(invoiceData: InvoiceData)`, która przyjmuje dane faktury jako argument i zwraca utworzony plik PDF. 
+
+Metoda ta wykorzystuje bibliotekę iTextPDF do generowania dokumentu PDF. Tworzony jest nowy plik PDF w katalogu dokumentów urządzenia o nazwie "faktura.pdf". Następnie, na podstawie danych faktury, generowany jest układ dokumentu zawierający informacje o fakturze, sprzedawcy, kupującym, pozycjach produktów oraz podsumowanie kwotowe. 
+
+Po wygenerowaniu pliku PDF, metoda `openPdf(pdfFile: File)` jest wywoływana w celu otwarcia wygenerowanego pliku za pomocą odpowiedniego programu do przeglądania dokumentów PDF.
 
 ### MainActivity.kt
 #### Klasa MainActivity
@@ -207,6 +217,21 @@ Ta klasa jest główną aktywnością aplikacji. Odpowiada za zarządzanie nawig
 - `appBarConfiguration`: Konfiguracja paska akcji zgodnie z dostępnymi fragmentami.
 - `binding`: Obiekt klasy ActivityMainBinding, służący do powiązania elementów interfejsu użytkownika z kodem.
 
+### GeneratePdfActivity.kt
+#### Klasa GeneratePdfActivity
+
+Ta klasa jest aktywnością w aplikacji do generowania plików PDF na podstawie danych otrzymanych z plików JSON lub XML. Odpowiada za odczyt danych z pliku, generowanie faktury w formacie PDF i udostępnianie jej użytkownikowi.
+
+##### Kluczowe metody i pola:
+- `onCreate(Bundle)`: Metoda wywoływana przy tworzeniu aktywności, gdzie inicjowane są elementy interfejsu użytkownika oraz odczytywane są dane z przekazanego pliku.
+- `readFileContent(Uri, String)`: Metoda do odczytu zawartości pliku JSON lub XML i wywołanie odpowiednich funkcji do analizy danych.
+- `readInvoiceDataFromJson(InputStream)`: Metoda do parsowania danych z pliku JSON i tworzenia obiektu `InvoiceData`.
+- `readInvoiceDataFromXml(InputStream)`: Metoda do parsowania danych z pliku XML i tworzenia obiektu `InvoiceData`.
+- `generatePdf(InvoiceData)`: Metoda do generowania pliku PDF na podstawie danych faktury.
+- `openPdf(File)`: Metoda do otwierania pliku PDF w aplikacji do przeglądania dokumentów.
+- `REQUEST_WRITE_PERMISSION`: Stała określająca kod żądania uprawnień do zapisu pliku.
+
+
 **Podsumowanie:**
 
 Projekt "InvoiceGenius" dostarcza użyteczne narzędzie do zarządzania fakturami, umożliwiając łatwe tworzenie, przeglądanie i edycję dokumentów finansowych.
@@ -217,3 +242,4 @@ Projekt "InvoiceGenius" dostarcza użyteczne narzędzie do zarządzania fakturam
 - Mechanizm walidacji danych zapewniający poprawność wprowadzonych informacji.
 - Funkcja generowania faktur z automatycznym obliczaniem kwot i stawek VAT.
 - Responywna nawigacja między fragmentami ułatwiająca korzystanie z aplikacji.
+- Możliwość generowania faktur poprzez podanie danych w formularzu bądź w załączonym pliku XML lub JSON.
