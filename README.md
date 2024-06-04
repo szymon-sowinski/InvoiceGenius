@@ -5,6 +5,7 @@ Witaj w InvoiceGenius! To aplikacja stworzona z myślą o ułatwieniu procesu ge
 
 - **Łatwe tworzenie faktur:** Dzięki prostemu interfejsowi możesz w kilka chwil stworzyć i dostosować fakturę do swoich potrzeb.
 - **Wprowadzanie danych poprzez formularz:** Wprowadzanie danych poprzez formularz w InvoiceGenius umożliwia szybkie i precyzyjne uzupełnienie wszystkich niezbędnych informacji niezbędnych do wygenerowania kompletnych dokumentów finansowych.
+- **Wprowadzanie danych poprzez załączony plik JSON lub XML:** Wprowadzanie danych poprzez załączenie pliku umożliwia szybkie wprowadzanie danych bez konieczności wypełniania dodatkowych pól formularza.  
 
 ## Layout Aplikacji
 ### Strona główna
