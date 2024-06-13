@@ -1,246 +1,203 @@
 # InvoiceGenius
-Witaj w InvoiceGenius! To aplikacja stworzona z myślą o ułatwieniu procesu generowania faktur dla Twojej firmy. Dzięki InvoiceGenius możesz szybko i łatwo tworzyć profesjonalne dokumenty finansowe, oszczędzając cenny czas i unikając błędów.
+Welcome to InvoiceGenius! This application is designed to simplify the invoice generation process for your company. With InvoiceGenius, you can quickly and easily create professional financial documents, saving valuable time and avoiding errors.
 
-## Funkcje
+## Features
 
-- **Łatwe tworzenie faktur:** Dzięki prostemu interfejsowi możesz w kilka chwil stworzyć i dostosować fakturę do swoich potrzeb.
-- **Wprowadzanie danych poprzez formularz:** Wprowadzanie danych poprzez formularz w InvoiceGenius umożliwia szybkie i precyzyjne uzupełnienie wszystkich niezbędnych informacji niezbędnych do wygenerowania kompletnych dokumentów finansowych.
-- **Wprowadzanie danych poprzez załączony plik JSON lub XML:** Wprowadzanie danych poprzez załączenie pliku umożliwia szybkie wprowadzanie danych bez konieczności wypełniania dodatkowych pól formularza.  
+- **Easy invoice creation:** With a simple interface, you can create and customize an invoice in just a few moments to suit your needs.
+- **Data entry via form:** Data entry via a form in InvoiceGenius enables quick and precise completion of all necessary information required to generate complete financial documents.
+- **Data entry via attached JSON or XML file:** Data entry via an attached file allows for quick data entry without the need to fill out additional form fields.
 
-## Layout Aplikacji
-### Strona główna
-Layout ekranu głównego aplikacji został zbudowany przy użyciu `ConstraintLayout` i zawiera następujące elementy:
-- **Logo aplikacji:** `ImageView` o rozmiarze 150x150 dp, wyśrodkowane poziomo, z marginesem 136 dp od góry ekranu.
-- **Nazwa aplikacji:** `TextView` z nazwą aplikacji, umieszczony poniżej logo, z marginesem 28 dp. Tekst jest pogrubiony, o rozmiarze 40 sp.
-- **Separator:** `View` w postaci linii o szerokości 300 dp i wysokości 3 dp, umieszczony poniżej nazwy aplikacji z marginesem 20 dp. Ma gradientowe tło.
-- **Slogan aplikacji:** `TextView` z hasłem aplikacji, wyśrodkowany tekst o rozmiarze 18 sp, umieszczony poniżej separatora z marginesem 16 dp.
+## Application Layout
+### Home Page
+The main screen layout of the application is built using `ConstraintLayout` and includes the following elements:
+- **Application logo:** `ImageView` sized 150x150 dp, centered horizontally, with a 136 dp margin from the top of the screen.
+- **Application name:** `TextView` with the application name, placed below the logo, with a 28 dp margin. The text is bold, with a size of 40 sp.
+- **Separator:** `View` in the form of a line with a width of 300 dp and a height of 3 dp, placed below the application name with a 20 dp margin. It has a gradient background.
+- **Application slogan:** `TextView` with the application's slogan, centered text with a size of 18 sp, placed below the separator with a 16 dp margin.
 
-Całość jest zaprojektowana w sposób responsywny, z elementami wyśrodkowanymi na ekranie.
+The entire layout is designed to be responsive, with elements centered on the screen.
 
-### Menu nawigacyjne
-Menu nawigacyjne aplikacji InvoiceGenius zawiera następujące opcje:
+### Navigation Menu
+The navigation menu of the InvoiceGenius application contains the following options:
 
-- **Strona główna**: Powrót do ekranu głównego aplikacji.
-- **Wprowadź dane z formularza**: Opcja pozwalająca na ręczne wprowadzenie danych do faktury za pomocą formularza.
-- **Wprowadź dane z pliku**: Opcja umożliwiająca załadowanie danych do faktury z pliku.
+- **Home Page:** Return to the application's main screen.
+- **Enter data from form:** Option to manually enter invoice data using a form.
+- **Enter data from file:** Option to load invoice data from a file.
 
-Każda z tych opcji jest zilustrowana odpowiednią ikoną, co ułatwia nawigację i użytkowanie aplikacji.
+Each of these options is illustrated with an appropriate icon, making navigation and application usage easier.
 
-<img src="app/src/main/res/drawable/strona_glowna.jpg" alt="Ekran główny aplikacji" width="250">
-<img src="app/src/main/res/drawable/menu.jpg" alt="Menu nawigacyjne" width="250">
+![Application main screen](app/src/main/res/drawable/strona_glowna.jpg)
+![Navigation menu](app/src/main/res/drawable/menu.jpg)
 
-### Formularz wprowadzania danych
-Formularz do wprowadzania danych do faktury zawiera następujące elementy:
-- **10 kontenerów `LinearLayout`** wraz z polami edycyjnymi umożliwiającymi wprowadzanie danych do faktur.
-- **`Button`do generowania faktury** wyzwala uruchomienie aktywności z szablonem faktury.
+### Data Entry Form
+The form for entering invoice data contains the following elements:
+- **10 `LinearLayout` containers** with edit fields allowing for data entry for invoices.
+- **`Button` to generate invoice** triggers the activity with the invoice template.
 
-<img src="app/src/main/res/drawable/formularz.jpg" alt="Formularz do wprowadzania danych" width="250">
+![Data entry form](app/src/main/res/drawable/formularz.jpg)
 
-### Interfejs do załączenia pliku
-Interfejs umozliwiający załączenie pliku do przetworzenia prezentuje:
-- **Przycisk do załączenia pliku:** `Button` umożliwający załączenie pliku JSON lub XML
-- **Przycisk do generowania:** `Button` umożliwiający generowanie.
+### File Attachment Interface
+The interface allowing for file attachment for processing presents:
+- **Button to attach file:** `Button` allowing for the attachment of a JSON or XML file.
+- **Generate button:** `Button` allowing for generation.
 
-<img src="app/src/main/res/drawable/plik.jpg" alt="Interfejs do załączania plików" width="250">
+![File attachment interface](app/src/main/res/drawable/plik.jpg)
 
-### Szablon faktury
-#### Nagłówek
+### Invoice Template
+#### Header
 
-- **Faktura:** Pole to zawiera numer faktury.
-- **Data wystawienia:** Data, kiedy faktura została wystawiona.
-- **Data sprzedaży:** Data, kiedy nastąpiła sprzedaż.
+- **Invoice:** This field contains the invoice number.
+- **Issue Date:** The date the invoice was issued.
+- **Sale Date:** The date the sale occurred.
 
-#### Sprzedawca i Nabywca
+#### Seller and Buyer
 
-- **Sprzedawca:** Informacje dotyczące sprzedawcy, takie jak nazwa firmy, adres, NIP, numer telefonu oraz numer konta bankowego.
-- **Nabywca:** Informacje dotyczące nabywcy, takie jak nazwa firmy, adres, adres e-mail oraz numer telefonu.
+- **Seller:** Information about the seller, such as company name, address, VAT number, phone number, and bank account number.
+- **Buyer:** Information about the buyer, such as company name, address, email address, and phone number.
 
-#### Produkty
+#### Products
 
-- **Tabela:** Zawiera listę produktów sprzedanych na fakturze. Każdy wiersz tabeli obejmuje kolejny produkt, wraz z jego nazwą, ilością, jednostką miary, ceną netto, stawką VAT, kwotą VAT oraz ceną brutto.
+- **Table:** Contains a list of products sold on the invoice. Each row of the table includes the next product, along with its name, quantity, unit of measure, net price, VAT rate, VAT amount, and gross price.
 
-#### Podsumowanie
+#### Summary
 
-- **Podsumowanie:** Ostatni fragment zawiera kwoty podsumowania, takie jak łączna cena netto, łączna kwota VAT, łączna cena brutto.
+- **Summary:** The last section contains summary amounts, such as total net price, total VAT amount, total gross price.
 
-#### Do zapłaty
+#### To be Paid
 
-- **Sposób zapłaty:** Określa, w jaki sposób należy dokonać płatności.
-- **Termin płatności:** Data, do której należy dokonać płatności.
-- **Kwota do zapłaty:** Łączna kwota do zapłaty.
+- **Payment Method:** Specifies how the payment should be made.
+- **Payment Deadline:** The date by which payment should be made.
+- **Amount to be Paid:** The total amount to be paid.
 
-#### Podpisy
+#### Signatures
 
-- **Wystawił:** Pole na podpis sprzedawcy.
-- **Otrzymał:** Pole na podpis nabywcy.
+- **Issued by:** Field for the seller's signature.
+- **Received by:** Field for the buyer's signature.
 
-#### Stopka
+#### Footer
 
-- **Faktura wygenerowana przez:** Informacja o narzędziu generującym fakturę, na przykład "InvoiceGenius".
+- **Invoice generated by:** Information about the tool generating the invoice, for example, "InvoiceGenius."
 
-## Logika biznesowa aplikacji
+## Business Logic of the Application
 
 ### FileFragment.kt
-#### Fragment obsługujący wybór i przetwarzanie plików
+#### Fragment Handling File Selection and Processing
 
-Ten fragment umożliwia użytkownikowi wybór pliku z systemowego systemu plików, a następnie przetwarza jego zawartość w zależności od rozszerzenia pliku (.xml lub .json). Obsługuje również wyświetlanie zawartości pliku w formie dialogu.
+This fragment allows the user to select a file from the system's file system and then process its content depending on the file extension (.xml or .json). It also handles displaying the file content in a dialog.
 
-##### Wymagane uprawnienia
-Aplikacja wymaga uprawnienia do odczytu zewnętrznego przechowywania w celu wyboru pliku.
+##### Required Permissions
+The application requires permission to read external storage to select a file.
 
-##### Funkcje główne:
-- Wybór pliku z systemowego systemu plików.
-- Walidacja wybranego pliku pod kątem rozszerzenia (.xml lub .json).
-- Przetwarzanie zawartości pliku w zależności od jego rozszerzenia.
-- Wyświetlanie zawartości pliku w formie dialogu.
+##### Main Functions:
+- File selection from the system's file system.
+- Validation of the selected file for extension (.xml or .json).
+- Processing the file content depending on its extension.
+- Displaying the file content in a dialog.
 
-##### Kluczowe klasy i metody:
-- `FileFragment`: Główna klasa fragmentu obsługująca wybór i przetwarzanie plików.
-- `chooseFile()`: Metoda inicjująca wybór pliku z systemowego systemu plików.
-- `validateAndDisplayFilePath(Uri)`: Metoda walidująca wybrany plik i wyświetlająca jego ścieżkę.
-- `readFileContent(Uri, String)`: Metoda przetwarzająca zawartość pliku w zależności od jego rozszerzenia (.xml lub .json).
-- `displayData(Map<*, *>)`: Metoda wyświetlająca zawartość pliku w formie dialogu.
+##### Key Classes and Methods:
+- `FileFragment`: Main fragment class handling file selection and processing.
+- `chooseFile()`: Method initiating file selection from the system's file system.
+- `validateAndDisplayFilePath(Uri)`: Method validating the selected file and displaying its path.
+- `readFileContent(Uri, String)`: Method processing the file content depending on its extension (.xml or .json).
+- `displayData(Map<*, *>)`: Method displaying the file content in a dialog.
 
 ### FormFragment.kt
-#### Fragment obsługujący formularz tworzenia faktury
+#### Fragment Handling Invoice Creation Form
 
-Ten fragment pozwala użytkownikowi wypełnić formularz tworzenia faktury, sprawdza jego poprawność i przekształca dane wejściowe w obiekt faktury. Po poprawnym wypełnieniu formularza otwiera nową aktywność w celu wygenerowania faktury.
+This fragment allows the user to fill out the invoice creation form, checks its validity, and transforms the input data into an invoice object. After correctly filling out the form, it opens a new activity to generate the invoice.
 
-##### Kluczowe funkcje:
-- Wyświetlanie formularza do wypełnienia danych faktury.
-- Walidacja danych formularza.
-- Konwersja danych wejściowych na obiekt faktury.
-- Przekierowanie do aktywności generowania faktury po poprawnym wypełnieniu formularza.
+##### Key Functions:
+- Displaying the form to fill in invoice data.
+- Validation of form data.
+- Converting input data to an invoice object.
+- Redirecting to the invoice generation activity after correctly filling out the form.
 
-##### Kluczowe klasy i metody:
-- `FormFragment`: Główna klasa fragmentu obsługująca formularz tworzenia faktury.
-- `validateForm()`: Metoda walidująca dane formularza.
-- `showErrors(List<String>)`: Metoda wyświetlająca komunikat z błędami walidacji.
-- `ProductPositions`: Klasa reprezentująca pozycję produktu w formularzu.
-- `getProduct()`: Metoda zwracająca obiekt produktu na podstawie danych wprowadzonych w formularzu.
+##### Key Classes and Methods:
+- `FormFragment`: Main fragment class handling the invoice creation form.
+- `validateForm()`: Method validating form data.
+- `showErrors(List<String>)`: Method displaying validation error messages.
+- `ProductPositions`: Class representing a product position in the form.
+- `getProduct()`: Method returning a product object based on data entered in the form.
 
 ### HomeFragment.kt
-#### Fragment głównego widoku aplikacji
+#### Fragment of the Main View of the Application
 
-Ten fragment reprezentuje główny widok aplikacji, który zawiera podstawowe informacje lub funkcje. W tym przypadku, fragment ten jest pusty i nie zawiera żadnych widocznych elementów.
+This fragment represents the main view of the application, which contains basic information or functions. In this case, this fragment is empty and contains no visible elements.
 
-##### Kluczowe funkcje:
-- Wyświetlanie pustego widoku.
+##### Key Functions:
+- Displaying an empty view.
 
-##### Kluczowe klasy i metody:
-- `HomeFragment`: Główna klasa fragmentu reprezentującego główny widok aplikacji.
+##### Key Classes and Methods:
+- `HomeFragment`: Main fragment class representing the main view of the application.
 
 ### Buyer.kt
-#### Klasa Buyer
+#### Buyer Class
 
-Ta klasa reprezentuje kupującego w systemie fakturowania. Zawiera podstawowe informacje o kupującym, takie jak nazwa firmy, adres, adres e-mail i numer telefonu.
+This class represents the buyer in the invoicing system. It contains basic information about the buyer, such as company name, address, email address, and phone number.
 
-##### Kluczowe pola:
-- `companyName`: Nazwa firmy kupującego.
-- `address`: Adres kupującego.
-- `email`: Adres e-mail kupującego.
-- `phoneNumber`: Numer telefonu kupującego.
+##### Key Fields:
+- `companyName`: Buyer's company name.
+- `address`: Buyer's address.
+- `email`: Buyer's email address.
+- `phoneNumber`: Buyer's phone number.
 
 ### Product.kt
-#### Klasa Product
+#### Product Class
 
-Ta klasa reprezentuje produkt, który może być sprzedawany i uwzględniany na fakturze. Zawiera podstawowe informacje o produkcie, takie jak nazwa, ilość, jednostka miary, cena netto oraz stawka podatku VAT.
+This class represents a product that can be sold and included on an invoice. It contains basic information about the product, such as name, quantity, unit of measure, net price, and VAT rate.
 
-##### Kluczowe pola:
-- `productName`: Nazwa produktu.
-- `productAmount`: Ilość produktu.
-- `productMeasure`: Jednostka miary produktu.
-- `productPriceNetto`: Cena netto produktu.
-- `vatRate`: Stawka podatku VAT.
+##### Key Fields:
+- `productName`: Product name.
+- `productAmount`: Product quantity.
+- `productMeasure`: Product unit of measure.
+- `productPriceNetto`: Product net price.
+- `vatRate`: VAT rate.
 
 ### Seller.kt
-#### Klasa Seller
+#### Seller Class
 
-Ta klasa reprezentuje sprzedawcę w systemie fakturowania. Zawiera podstawowe informacje o sprzedawcy, takie jak nazwa firmy, adres, numer NIP, numer konta bankowego i numer telefonu.
+This class represents the seller in the invoicing system. It contains basic information about the seller, such as company name, address, VAT number, bank account number, and phone number.
 
-##### Kluczowe pola:
-- `companyName`: Nazwa firmy sprzedawcy.
-- `address`: Adres sprzedawcy.
-- `nip`: Numer NIP sprzedawcy.
-- `bankAccountNumber`: Numer konta bankowego sprzedawcy.
-- `phoneNumber`: Numer telefonu sprzedawcy.
+##### Key Fields:
+- `companyName`: Seller's company name.
+- `address`: Seller's address.
+- `nip`: Seller's VAT number.
+- `bankAccountNumber`: Seller's bank account number.
+- `phoneNumber`: Seller's phone number.
 
 ### InvoiceData
-#### Klasa InvoiceData
+#### InvoiceData Class
 
-Ta klasa reprezentuje dane faktury w systemie fakturowania. Zawiera wszystkie informacje potrzebne do wygenerowania faktury, takie jak informacje o sprzedawcy i kupującym, daty sprzedaży i wystawienia faktury, informacje o płatności oraz lista pozycji produktów.
+This class represents invoice data in the invoicing system. It contains all the information needed to generate an invoice, such as information about the seller and buyer, sale and issue dates, payment information, and a list of product positions.
 
-##### Kluczowe pola:
-- `seller`: Obiekt Seller reprezentujący sprzedawcę.
-- `buyer`: Obiekt Buyer reprezentujący kupującego.
-- `sellDate`: Data sprzedaży.
-- `issueDate`: Data wystawienia faktury.
-- `paymentMethod`: Metoda płatności.
-- `paymentDate`: Data płatności.
-- `paymentTargetDate`: Data docelowa płatności.
-- `products`: Lista pozycji produktów.
-- `invoiceNumber`: Numer faktury.
-
+##### Key Fields:
+- `seller`: Seller object representing the seller.
+- `buyer`: Buyer object representing the buyer.
+- `sellDate`: Sale date.
+- `issueDate`: Invoice issue date.
+- `paymentMethod`: Payment method.
+- `paymentDate`: Payment date.
+- `paymentTargetDate`: Payment target date.
+- `products`: List of product positions.
+- `invoiceNumber`: Invoice number.
 
 ### InvoiceActivity
 
-#### Aktywność InvoiceActivity
+#### InvoiceActivity
 
-Ta aktywność jest odpowiedzialna za wyświetlanie faktury na podstawie danych otrzymanych przez Intent. Aktywność ta wyświetla dane faktury, w tym informacje o sprzedawcy i kupującym, pozycje produktów oraz podsumowanie kwotowe.
+This activity is responsible for displaying the invoice based on data received via Intent. This activity displays invoice data, including seller and buyer information, product positions, and summary amounts.
 
-##### Kluczowe metody i pola:
+##### Key Methods and Fields:
 
-- `onCreate(Bundle)`: Metoda wywoływana przy tworzeniu aktywności, w której inicjowana jest logika wyświetlania faktury na podstawie danych przekazanych przez Intent.
-- `invoiceNumberTemp`, `issueDateTemp`, `sellDateTemp`: TextViews wyświetlające numer faktury, datę wystawienia i datę sprzedaży.
-- `companyNameSellerTemp`, `addressSellerTemp`, `nipSellerTemp`, `phoneNumberSellerTemp`, `bankAccountNumberTemp`: TextViews wyświetlające informacje o sprzedawcy.
-- `companyNameBuyerTemp`, `addressBuyerTemp`, `emailBuyerTemp`, `phoneNumberBuyerTemp`: TextViews wyświetlające informacje o kupującym.
-- `priceNettoTemp`, `priceVatTemp`, `priceBruttoTemp`, `paymentMethodTemp`, `paymentTargetDateTemp`, `wholePriceTemp`, `signatureSellerTemp`: TextViews wyświetlające informacje dotyczące kwot oraz metody płatności.
-- `productsContainer`: Kontener LinearLayout, do którego dodawane są pozycje produktów.
-- `Gson()`: Obiekt Gson służący do deserializacji danych faktury.
+- `onCreate(Bundle)`: Method called when the activity is created, where the logic for displaying the invoice based on data passed via Intent is initiated.
+- `invoiceNumberTemp`, `issueDateTemp`, `sellDateTemp`: TextViews displaying the invoice number, issue date, and sale date.
+- `companyNameSellerTemp`, `addressSellerTemp`, `nipSellerTemp`, `phoneNumberSellerTemp`, `bankAccountNumberTemp`: TextViews displaying seller information.
+- `companyNameBuyerTemp`, `addressBuyerTemp`, `emailBuyerTemp`, `phoneNumberBuyerTemp`: TextViews displaying buyer information.
+- `priceNettoTemp`, `priceVatTemp`, `priceBruttoTemp`, `paymentMethodTemp`, `paymentTargetDateTemp`, `wholePriceTemp`, `signatureSellerTemp`: TextViews displaying amounts and payment method information.
+- `productsContainer`: LinearLayout container to which product positions are added.
+- `Gson()`: Gson object used for deserializing invoice data.
 
-#### Generowanie pliku PDF
+---
 
-W celu utworzenia pliku PDF faktury, używana jest metoda `generatePdf(invoiceData: InvoiceData)`, która przyjmuje dane faktury jako argument i zwraca utworzony plik PDF. 
-
-Metoda ta wykorzystuje bibliotekę iTextPDF do generowania dokumentu PDF. Tworzony jest nowy plik PDF w katalogu dokumentów urządzenia o nazwie "faktura.pdf". Następnie, na podstawie danych faktury, generowany jest układ dokumentu zawierający informacje o fakturze, sprzedawcy, kupującym, pozycjach produktów oraz podsumowanie kwotowe. 
-
-Po wygenerowaniu pliku PDF, metoda `openPdf(pdfFile: File)` jest wywoływana w celu otwarcia wygenerowanego pliku za pomocą odpowiedniego programu do przeglądania dokumentów PDF.
-
-### MainActivity.kt
-#### Klasa MainActivity
-
-Ta klasa jest główną aktywnością aplikacji. Odpowiada za zarządzanie nawigacją między fragmentami za pomocą panelu nawigacyjnego (NavigationView) oraz ustawianie paska akcji (ActionBar) zgodnie z bieżącym fragmentem.
-
-##### Kluczowe metody i pola:
-- `onCreate(Bundle)`: Metoda wywoływana przy tworzeniu aktywności, w której inicjowane są elementy interfejsu użytkownika oraz konfiguracja nawigacji.
-- `onCreateOptionsMenu(Menu)`: Metoda do tworzenia menu akcji.
-- `onSupportNavigateUp()`: Metoda wywoływana, gdy użytkownik naciska przycisk powrotu na pasku akcji, służy do nawigacji do poprzedniego ekranu.
-- `appBarConfiguration`: Konfiguracja paska akcji zgodnie z dostępnymi fragmentami.
-- `binding`: Obiekt klasy ActivityMainBinding, służący do powiązania elementów interfejsu użytkownika z kodem.
-
-### GeneratePdfActivity.kt
-#### Klasa GeneratePdfActivity
-
-Ta klasa jest aktywnością w aplikacji do generowania plików PDF na podstawie danych otrzymanych z plików JSON lub XML. Odpowiada za odczyt danych z pliku, generowanie faktury w formacie PDF i udostępnianie jej użytkownikowi.
-
-##### Kluczowe metody i pola:
-- `onCreate(Bundle)`: Metoda wywoływana przy tworzeniu aktywności, gdzie inicjowane są elementy interfejsu użytkownika oraz odczytywane są dane z przekazanego pliku.
-- `readFileContent(Uri, String)`: Metoda do odczytu zawartości pliku JSON lub XML i wywołanie odpowiednich funkcji do analizy danych.
-- `readInvoiceDataFromJson(InputStream)`: Metoda do parsowania danych z pliku JSON i tworzenia obiektu `InvoiceData`.
-- `readInvoiceDataFromXml(InputStream)`: Metoda do parsowania danych z pliku XML i tworzenia obiektu `InvoiceData`.
-- `generatePdf(InvoiceData)`: Metoda do generowania pliku PDF na podstawie danych faktury.
-- `openPdf(File)`: Metoda do otwierania pliku PDF w aplikacji do przeglądania dokumentów.
-- `REQUEST_WRITE_PERMISSION`: Stała określająca kod żądania uprawnień do zapisu pliku.
-
-
-**Podsumowanie:**
-
-Projekt "InvoiceGenius" dostarcza użyteczne narzędzie do zarządzania fakturami, umożliwiając łatwe tworzenie, przeglądanie i edycję dokumentów finansowych.
-
-**Osiągnięcia:**
-
-- Interaktywny interfejs użytkownika dla szybkiego dostępu do funkcji fakturacji.
-- Mechanizm walidacji danych zapewniający poprawność wprowadzonych informacji.
-- Funkcja generowania faktur z automatycznym obliczaniem kwot i stawek VAT.
-- Responywna nawigacja między fragmentami ułatwiająca korzystanie z aplikacji.
-- Możliwość generowania faktur poprzez podanie danych w formularzu bądź w załączonym pliku XML lub JSON.
+## Conclusion
+InvoiceGenius is a powerful yet user-friendly tool for generating professional invoices. With features like easy form-based data entry, file attachment for batch processing, and customizable templates, it caters to the needs of small and medium-sized businesses aiming to streamline their invoicing process.
